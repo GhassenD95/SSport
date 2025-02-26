@@ -1,9 +1,9 @@
-package services.module3;
+package services.jdbc.module3;
 
 import models.module3.Blessure;
-import services.BaseService;
-import services.IService;
-import services.module1.ServiceUtilisateur;
+import services.jdbc.BaseService;
+import services.jdbc.IService;
+import services.jdbc.module1.ServiceUtilisateur;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

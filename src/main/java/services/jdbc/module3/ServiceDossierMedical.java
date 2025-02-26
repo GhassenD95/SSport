@@ -1,9 +1,9 @@
-package services.module3;
+package services.jdbc.module3;
 
 import enums.EtatAthlete;
 import models.module3.DossierMedical;
-import services.BaseService;
-import services.IService;
+import services.jdbc.BaseService;
+import services.jdbc.IService;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -1,10 +1,10 @@
-package services.module1;
+package services.jdbc.module1;
 
 import enums.Role;
 import enums.Status;
 import models.module1.Utilisateur;
-import services.BaseService;
-import services.IService;
+import services.jdbc.BaseService;
+import services.jdbc.IService;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -1,10 +1,10 @@
-package services.module5;
+package services.jdbc.module5;
 
 import models.module5.MatchSportif;
-import services.BaseService;
-import services.IService;
-import services.module1.ServiceEquipe;
-import services.module4.ServiceTournois;
+import services.jdbc.BaseService;
+import services.jdbc.IService;
+import services.jdbc.module1.ServiceEquipe;
+import services.jdbc.module4.ServiceTournois;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

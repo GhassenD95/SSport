@@ -1,0 +1,106 @@
+.root{
+    -fx-font-family: "Cascadia Code";  /* Or 'Roboto' if using a custom font */
+    -fx-background-color: #0C1222;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 17px;
+
+}
+
+
+
+.card{
+    -fx-background-color: #182130;
+    -fx-border-radius: 20px;  /* Rounded border */
+    -fx-background-radius: 5px;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 10px;
+}
+
+.card2{
+    -fx-background-color: #0C1222;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 10px;
+
+}
+
+.btn-1{
+    -fx-background-color: #2dd4bf;
+}
+.title{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 25px;
+}
+.small{
+    -fx-text-fill: #F5F5F5;
+    -fx-font-size: 10px;
+
+}
+.text{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 17px;
+
+}
+
+.btn-2{
+    -fx-opacity: 0.6;
+}
+.btn-2:hover{
+    -fx-opacity: 1;
+    -fx-cursor: hand;
+}
+
+link {
+    -fx-text-fill: #FFFFFF;  /* White color for text */
+    -fx-font-size: 13px;     /* Font size */
+}
+
+.link:hover {
+    -fx-text-decoration: underline;  /* Underline text on hover */
+    -fx-cursor: hand;  /* Change cursor to hand */
+}
+/* Style for the whole scrollable area */
+.scroll-bar {
+    -fx-background-color: #1A242F;
+}
+
+/* Style for the scrollbar track */
+.scroll-bar .track {
+    -fx-background-color: #34495E;
+    -fx-background-radius: 5px;
+}
+
+/* Style for the scrollbar thumb */
+.scroll-bar .thumb {
+    -fx-background-color: #1ABC9C;
+    -fx-background-radius: 5px;
+}
+
+/* Style for the thumb when hovering */
+.scroll-bar .thumb:hover {
+    -fx-background-color: #16A085;
+}
+
+/* Optional: Style for scrollbar buttons (arrows) */
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+}
+
+/* Arrow customization */
+.scroll-bar .increment-button .arrow, .scroll-bar .decrement-button .arrow {
+    -fx-fill: #FFFFFF;
+}
+/* Make the vertical scrollbar thinner */
+.scroll-bar:vertical {
+    -fx-pref-width: 10px; /* Set the desired width */
+}
+
+/* Make the horizontal scrollbar thinner */
+.scroll-bar:horizontal {
+    -fx-pref-height: 10px; /* Set the desired height */
+}
+
+.scroll-pane {
+    -fx-border-color: transparent;  /* Remove the border color */
+    -fx-border-width: 0;  /* Remove the border width */
+    -fx-background-color: transparent;  /* Optional: Set the background to transparent */
+}

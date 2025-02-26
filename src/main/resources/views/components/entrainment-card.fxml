@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<StackPane prefHeight="100.0" prefWidth="800.0" stylesheets="@../../styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EntrainmentCardController">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0" />
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+         <children>
+            <HBox>
+               <children>
+                  <GridPane prefHeight="0.0" prefWidth="810.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="395.0" minWidth="10.0" prefWidth="395.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="395.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label fx:id="nom" styleClass="text" text="Seance 1" />
+                        <GridPane GridPane.columnIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.1999847412109" minWidth="10.0" prefWidth="314.1999847412109" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="209.0" minWidth="10.0" prefWidth="81.00001525878906" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <GridPane>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.8" minWidth="10.0" prefWidth="156.8" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="158.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label fx:id="debut" style="-fx-font-size: 13; -fx-text-fill: #2dd4bf;" text="Label" />
+                                    <Label fx:id="fin" style="-fx-font-size: 13; -fx-text-fill: #2dd4bf;" text="Label" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <GridPane>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="34.399998092651366" minWidth="10.0" prefWidth="34.399998092651366" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="52.00000000000001" minWidth="10.0" prefWidth="33.00000190734864" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints />
+                                       </rowConstraints>
+                                       <children>
+                                          <StackPane onMouseClicked="#onClickDelete" layoutX="44.0" layoutY="10.0" prefHeight="20" prefWidth="20" styleClass="btn-2" GridPane.columnIndex="1">
+                                             <children>
+                                                <SVGPath content="M11.188 4.781c6.188 0 11.219 5.031 11.219 11.219s-5.031 11.188-11.219 11.188-11.188-5-11.188-11.188 5-11.219 11.188-11.219zM11.25 17.625l3.563 3.594c0.438 0.438 1.156 0.438 1.594 0 0.406-0.406 0.406-1.125 0-1.563l-3.563-3.594 3.563-3.594c0.406-0.438 0.406-1.156 0-1.563-0.438-0.438-1.156-0.438-1.594 0l-3.563 3.594-3.563-3.594c-0.438-0.438-1.156-0.438-1.594 0-0.406 0.406-0.406 1.125 0 1.563l3.563 3.594-3.563 3.594c-0.406 0.438-0.406 1.156 0 1.563 0.438 0.438 1.156 0.438 1.594 0z" scaleX="0.8" scaleY="0.8" scaleZ="0.8" style="-fx-fill: #c85a6b;" />
+                                             </children>
+                                          </StackPane>
+                                          <StackPane layoutX="44.0" layoutY="10.0" prefHeight="20" prefWidth="20" styleClass="btn-2">
+                                             <children>
+                                                <SVGPath content="M15,6V1.76l-1.7,1.7A7,7,0,1,0,14.92,9H13.51a5.63,5.63,0,1,1-1.2-4.55L10.76,6Z" style="-fx-fill: #2dd4bf;" />
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </GridPane>
+
+
+                                 </children></HBox>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <VBox spacing="10.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label styleClass="text-small" text="notes du coach:" />
+                              <ImageView fx:id="imageCoach" fitHeight="34.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label fx:id="description" style="-fx-text-fill: #6670C6; -fx-font-size: 10;" styleClass="text-small" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox spacing="5.0">
+                           <children>
+                              <GridPane prefHeight="26.0" prefWidth="786.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <Label style="-fx-font-size: 13; -fx-text-fill: #FFFFFF;" text="equipe concernee:" />
+                                          <Label fx:id="equipe" style="-fx-font-size: 13; -fx-text-fill: #FFFFFF;" text="equipe 1" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1">
+                                       <children>
+                                          <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 13;" styleClass="link" text="voir plus" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                              </GridPane>
+
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </Separator>
+         </children>
+         
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</StackPane>

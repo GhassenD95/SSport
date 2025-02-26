@@ -1,10 +1,10 @@
-package services.module2;
+package services.jdbc.module2;
 
 import models.module2.Entrainment;
-import services.BaseService;
-import services.IService;
-import services.module1.ServiceEquipe;
-import services.module6.ServiceInstallationSportive;
+import services.jdbc.BaseService;
+import services.jdbc.IService;
+import services.jdbc.module1.ServiceEquipe;
+import services.jdbc.module6.ServiceInstallationSportive;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

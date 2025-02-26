@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane prefWidth="800.0" styleClass="card2" stylesheets="@../../styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TitleBannerController">
+   <children>
+      <HBox>
+         <children>
+            <Label fx:id="title" styleClass="title" text="Entrainment" />
+         </children>
+      </HBox>
+   </children>
+</StackPane>

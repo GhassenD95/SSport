@@ -1,8 +1,8 @@
-package services.module2;
+package services.jdbc.module2;
 
 import models.module2.Exercice;
-import services.BaseService;
-import services.IService;
+import services.jdbc.BaseService;
+import services.jdbc.IService;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

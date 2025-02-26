@@ -1,11 +1,11 @@
-package services.module6;
+package services.jdbc.module6;
 
 import enums.TypeInstallation;
 import models.module6.InstallationSportive;
-import services.BaseService;
-import services.IService;
-import services.module1.ServiceUtilisateur;
-import services.module2.ServiceEntrainment;
+import services.jdbc.BaseService;
+import services.jdbc.IService;
+import services.jdbc.module1.ServiceUtilisateur;
+import services.jdbc.module2.ServiceEntrainment;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

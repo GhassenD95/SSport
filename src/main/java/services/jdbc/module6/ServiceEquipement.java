@@ -1,10 +1,10 @@
-package services.module6;
+package services.jdbc.module6;
 
 import enums.EtatEquipement;
 import enums.TypeEquipement;
 import models.module6.Equipement;
-import services.BaseService;
-import services.IService;
+import services.jdbc.BaseService;
+import services.jdbc.IService;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

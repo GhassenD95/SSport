@@ -1,14 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
-
-</AnchorPane>
+<StackPane prefHeight="600" prefWidth="1000" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainLayoutController">
+   <children>
+      <GridPane hgap="13.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="494.39996337890625" minWidth="10.0" prefWidth="202.3999786376953" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="832.0000152587891" minWidth="10.0" prefWidth="797.6000213623047" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="13.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="card">
+                     <children>
+                        <VBox alignment="CENTER" prefWidth="121.0" spacing="5.0">
+                           <children>
+                              <ImageView fitHeight="61.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../../../Downloads/profile1.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox alignment="CENTER">
+                                 <children>
+                                    <HBox alignment="CENTER">
+                                       <children>
+                                          <Label style="-fx-font-size: 13;" styleClass="small" text="John Adams" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
+                                       <children>
+                                          <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 9;" text="role" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="375.0" prefWidth="182.0" styleClass="card">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="350.0" prefWidth="192.0" spacing="40.0">
+                           <children>
+                              <Label style="-fx-font-size: 13; -fx-text-fill: #FFFFFF;" text="acceuil" />
+                              <Label layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 13;" text="entrainments" />
+                              <Label layoutX="10.0" layoutY="25.0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 13;" text="utilisateurs" />
+                              <Label layoutX="10.0" layoutY="121.0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 13;" text="matchs" />
+                              <Label layoutX="32.0" layoutY="176.0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 13;" text="tournois" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="25.0" top="25.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="69.0" prefWidth="182.0" styleClass="card">
+                     <children>
+                        <Button mnemonicParsing="false" style="-fx-font-size: 13;" styleClass="btn-1" text="logout" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox fx:id="mainContent" prefHeight="150.0" prefWidth="200.0" styleClass="card" GridPane.columnIndex="1">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding></VBox>
+         </children>
+      </GridPane>
+   </children>
+   <padding>
+      <Insets bottom="13.0" left="13.0" right="13.0" top="13.0" />
+   </padding>
+</StackPane>

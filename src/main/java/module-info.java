@@ -10,7 +10,10 @@ module mains.ssport {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.sql;
 
     opens mains.ssport to javafx.fxml;
     exports mains.ssport;
+    exports controllers;
+    opens controllers to javafx.fxml;
 }

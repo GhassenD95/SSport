@@ -1,9 +1,13 @@
-package mains.ssport;
+package controllers;
 
+import com.almasb.fxgl.entity.action.Action;
+import common.INavigation;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import org.w3c.dom.events.MouseEvent;
 
-public class HelloController {
+public class HelloController extends BaseController implements INavigation {
     @FXML
     private Label welcomeText;
 
@@ -11,4 +15,9 @@ public class HelloController {
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
+
+    public void onClickNavigateTo(ActionEvent event) {
+        navigationService.navigateTo("/views/entrainment/entrainment.fxml");
+    }
+
 }

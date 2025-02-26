@@ -1,9 +1,9 @@
-package services.module4;
+package services.jdbc.module4;
 
 import models.module4.PerformanceEquipe;
-import services.BaseService;
-import services.IService;
-import services.module1.ServiceEquipe;
+import services.jdbc.BaseService;
+import services.jdbc.IService;
+import services.jdbc.module1.ServiceEquipe;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -1,9 +1,9 @@
-package services.module5;
+package services.jdbc.module5;
 
 import models.module5.PerformanceAthlete;
-import services.BaseService;
-import services.IService;
-import services.module1.ServiceUtilisateur;
+import services.jdbc.BaseService;
+import services.jdbc.IService;
+import services.jdbc.module1.ServiceUtilisateur;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

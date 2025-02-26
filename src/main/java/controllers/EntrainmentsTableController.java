@@ -23,6 +23,7 @@ public class EntrainmentsTableController extends BaseController implements INavi
             // Initialize the NavigationService once
             NavigationService navigationService = new NavigationService(this.cardsContainer);
 
+            cardsContainer.getChildren().clear();
             // Load a card for each entrainment
             for (Entrainment entrainment : entrainments) {
                 navigationService.loadComponent("/views/components/entrainment-card.fxml", cardsContainer, entrainment);
@@ -32,5 +33,7 @@ public class EntrainmentsTableController extends BaseController implements INavi
             throw new RuntimeException("Failed to fetch entrainments from the database", e);
         }
     }
+
+
 
 }

@@ -60,7 +60,13 @@ public class EntrainmentCardController extends BaseController implements INaviga
     }
 
     public void onClickDelete(MouseEvent actionEvent) {
-
+        Entrainment entrainment = (Entrainment) data;
+        try {
+            new ServiceEntrainment().delete(entrainment);
+            this.navigationService.navigateTo("/views/entrainment/entrainment.fxml");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

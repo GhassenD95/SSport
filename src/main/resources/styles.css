@@ -2,7 +2,7 @@
     -fx-font-family: "Cascadia Code";  /* Or 'Roboto' if using a custom font */
     -fx-background-color: #0C1222;
     -fx-text-fill: #FFFFFF;
-    -fx-font-size: 17px;
+    -fx-font-size: 13px;
 
 }
 
@@ -26,6 +26,10 @@
 .btn-1{
     -fx-background-color: #2dd4bf;
 }
+.btn-1:hover{
+    -fx-background-color: #2dd4bf;
+    -fx-cursor: hand;
+}
 .title{
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 25px;
@@ -37,7 +41,12 @@
 }
 .text{
     -fx-text-fill: #FFFFFF;
-    -fx-font-size: 17px;
+    -fx-font-size: 13px;
+
+}
+.text-secondary{
+    -fx-text-fill: #7F8C8D;
+    -fx-font-size: 13px;
 
 }
 
@@ -49,7 +58,7 @@
     -fx-cursor: hand;
 }
 
-link {
+.link {
     -fx-text-fill: #FFFFFF;  /* White color for text */
     -fx-font-size: 13px;     /* Font size */
 }
@@ -103,4 +112,207 @@ link {
     -fx-border-color: transparent;  /* Remove the border color */
     -fx-border-width: 0;  /* Remove the border width */
     -fx-background-color: transparent;  /* Optional: Set the background to transparent */
+}
+.combo-box {
+    -fx-background-color: #2C3E50; /* Dark background for ComboBox */
+    -fx-border-color: #34495E; /* Slightly lighter border color */
+    -fx-border-radius: 5px; /* Slightly smaller rounded corners to match theme */
+    -fx-text-fill: #FFFFFF; /* White text color */
+    -fx-font-size: 9px; /* Set the font size */
+}
+
+.combo-box .button {
+    -fx-background-color: #2dd4bf; /* Background color when the button is idle */
+    -fx-text-fill: #FFFFFF; /* White text color */
+    -fx-border-radius: 5px; /* Rounded border for the button */
+    -fx-font-size: 9px; /* Font size */
+}
+
+.combo-box .button:hover {
+    -fx-background-color: #16A085; /* Darker background on hover */
+    -fx-cursor: hand; /* Cursor changes to hand on hover */
+}
+
+.combo-box .list-cell {
+    -fx-background-color: #34495E; /* Dropdown item background */
+    -fx-text-fill: #FFFFFF; /* Text color */
+    -fx-font-size: 9px; /* Font size */
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: #2C3E50; /* Background color when hovering */
+}
+
+.combo-box:focused {
+    -fx-background-color: #16A085; /* Highlight color on focus */
+    -fx-border-color: #1ABC9C; /* Border color on focus */
+}
+
+.combo-box:disabled {
+    -fx-background-color: #7F8C8D; /* Disabled background */
+    -fx-text-fill: #BDC3C7; /* Disabled text color */
+    -fx-opacity: 0.5; /* Reduce opacity for disabled state */
+}
+/* DatePicker Base */
+.date-picker {
+    -fx-background-color: #2C3E50; /* Dark background */
+    -fx-border-color: #34495E; /* Slightly lighter border */
+    -fx-border-radius: 5px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 15px;
+}
+
+/* DatePicker Editable Field */
+.date-picker .text-field {
+    -fx-background-color: #182130;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: transparent;
+    -fx-padding: 5px 10px;
+}
+
+/* DatePicker Popup Button */
+.date-picker .arrow-button {
+    -fx-background-color: #2dd4bf; /* Teal highlight */
+    -fx-border-radius: 5px;
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: #16A085; /* Darker teal on hover */
+    -fx-cursor: hand;
+}
+
+/* DatePicker Calendar Popup */
+.date-picker-popup {
+    -fx-background-color: #182130;
+    -fx-border-color: #34495E;
+    -fx-border-radius: 5px;
+}
+
+/* Calendar Cells */
+.date-picker .cell {
+    -fx-background-color: #34495E;
+    -fx-text-fill: #FFFFFF;
+}
+
+.date-picker .cell:hover {
+    -fx-background-color: #2C3E50;
+}
+
+/* Selected Date */
+.date-picker .cell:selected {
+    -fx-background-color: #2dd4bf;
+    -fx-text-fill: #000000;
+}
+
+/* Today’s Date */
+.date-picker .cell:focused {
+    -fx-background-color: #16A085;
+    -fx-text-fill: #FFFFFF;
+}
+
+/* Disabled Dates */
+.date-picker .cell:disabled {
+    -fx-background-color: #7F8C8D;
+    -fx-text-fill: #BDC3C7;
+    -fx-opacity: 0.5;
+}
+.text-field {
+    -fx-background-color: #182130;  /* Dark background */
+    -fx-border-color: #34495E;      /* Slightly lighter border color */
+    -fx-border-radius: 5px;         /* Rounded corners */
+    -fx-text-fill: #FFFFFF;         /* White text color */
+    -fx-font-size: 13px;            /* Font size */
+    -fx-padding: 5px 10px;          /* Padding inside the TextField */
+}
+
+/* Focused TextField */
+.text-field:focused {
+    -fx-background-color: #16A085; /* Highlight color on focus */
+    -fx-border-color: #1ABC9C;     /* Border color on focus */
+}
+
+/* Disabled TextField */
+.text-field:disabled {
+    -fx-background-color: #7F8C8D; /* Disabled background */
+    -fx-text-fill: #BDC3C7;        /* Disabled text color */
+    -fx-opacity: 0.5;              /* Reduced opacity for disabled state */
+}
+
+/* TextField when hovered */
+.text-field:hover {
+    -fx-background-color: #2C3E50; /* Slightly lighter background on hover */
+    -fx-border-color: #34495E;     /* Slightly lighter border color */
+    -fx-cursor: text;              /* Change cursor to text on hover */
+}
+/* Style for the TextArea */
+.text-area {
+    -fx-background-color: #182130;  /* Dark background for the whole TextArea */
+    -fx-border-color: #34495E;      /* Slightly lighter border color */
+    -fx-border-radius: 5px;         /* Rounded corners */
+    -fx-text-fill: #FFFFFF;         /* White text color */
+    -fx-font-size: 13px;            /* Font size */
+    -fx-pref-height: 100px;         /* Default height for the TextArea */
+}
+
+/* Style for the TextArea */
+.text-area {
+    -fx-background-color: #182130;  /* Dark background for the whole TextArea */
+    -fx-border-color: #34495E;      /* Slightly lighter border color */
+    -fx-border-radius: 5px;         /* Rounded corners */
+    -fx-text-fill: #FFFFFF;         /* White text color */
+    -fx-font-size: 13px;            /* Font size */
+    -fx-pref-height: 100px;         /* Default height for the TextArea */
+}
+
+/* Style for the TextArea's content (the text box part) */
+.text-area .content {
+    -fx-background-color: #182130;  /* Dark background for the text area */
+    -fx-text-fill: #FFFFFF;         /* White text color */
+}
+
+/* Style for the TextArea's scroll pane */
+.text-area .scroll-pane {
+    -fx-background-color: transparent;  /* Make the scroll pane transparent */
+}
+
+/* Style for the TextArea's viewport */
+.text-area .scroll-pane .viewport {
+    -fx-background-color: #182130;  /* Match the background color of the TextArea */
+}
+
+/* Style for the TextArea's scroll bars */
+.text-area .scroll-bar:vertical,
+.text-area .scroll-bar:horizontal {
+    -fx-background-color: #1A242F;  /* Dark background for the scroll bars */
+}
+
+/* Style for the scrollbar thumb */
+.text-area .scroll-bar .thumb {
+    -fx-background-color: #1ABC9C;  /* Teal color for the thumb */
+    -fx-background-radius: 5px;     /* Rounded corners for the thumb */
+}
+
+/* Style for the scrollbar thumb when hovered */
+.text-area .scroll-bar .thumb:hover {
+    -fx-background-color: #16A085;  /* Darker teal on hover */
+}
+
+/* Focused TextArea */
+.text-area:focused {
+    -fx-background-color: #16A085; /* Highlight color on focus */
+    -fx-border-color: #1ABC9C;     /* Border color on focus */
+}
+
+/* Disabled TextArea */
+.text-area:disabled {
+    -fx-background-color: #7F8C8D; /* Disabled background */
+    -fx-text-fill: #BDC3C7;        /* Disabled text color */
+    -fx-opacity: 0.5;              /* Reduced opacity for disabled state */
+}
+
+/* TextArea when hovered */
+.text-area:hover {
+    -fx-background-color: #2C3E50; /* Slightly lighter background on hover */
+    -fx-border-color: #34495E;     /* Slightly lighter border color */
+    -fx-cursor: text;              /* Change cursor to text on hover */
 }

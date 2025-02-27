@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import models.module2.Entrainment;
+import services.events.EventBus;
 import services.jdbc.module2.ServiceEntrainment;
 import services.utilities.DateConverter;
 import services.utilities.ImageLoader;
@@ -62,8 +63,13 @@ public class EntrainmentCardController extends BaseController implements INaviga
     public void onClickDelete(MouseEvent actionEvent) {
         Entrainment entrainment = (Entrainment) data;
         try {
+            // Delete the entrainment
             new ServiceEntrainment().delete(entrainment);
-            this.navigationService.navigateTo("/views/entrainment/entrainment.fxml");
+
+            // Publish the "refresh-table" event to notify the table to refresh
+            EventBus.publish("refresh-table", null);
+
+            // Navigate back to the table view (you can handle it differently as needed)
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

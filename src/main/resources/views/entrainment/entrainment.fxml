@@ -11,6 +11,7 @@
                   <VBox spacing="20.0">
                      <children>
                         <VBox fx:id="container" />
+                        <VBox fx:id="filters" />
                         <VBox fx:id="table" layoutX="10.0" layoutY="10.0" />
                      </children>
                   </VBox>

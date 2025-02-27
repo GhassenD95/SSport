@@ -17,7 +17,7 @@ public class HelloController extends BaseController implements INavigation {
     }
 
     public void onClickNavigateTo(ActionEvent event) {
-        navigationService.navigateTo("/views/entrainment/entrainment.fxml");
+        navigationService.navigateTo("/main-layout.fxml");
     }
 
 }

@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefWidth="800.0" spacing="20.0" stylesheets="@../../styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddEntrainmentController">
+<VBox alignment="CENTER" prefWidth="800.0" spacing="20.0" stylesheets="@../../styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddEntrainmentController">
    <children>
       <HBox>
          <children>
@@ -18,25 +24,25 @@
                   <VBox alignment="CENTER_LEFT">
                      <children>
                         <Label styleClass="text-secondary" text="Nom de la seance:" />
-                        <TextField />
+                        <TextField fx:id="nom" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER_LEFT">
                      <children>
                         <Label styleClass="text-secondary" text="equipe concerne:" />
-                        <ComboBox prefWidth="150.0" />
+                        <ComboBox fx:id="equipe" prefWidth="150.0" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER_LEFT">
                      <children>
                         <Label styleClass="text-secondary" text="lieux:" />
-                        <ComboBox prefWidth="150.0" />
+                        <ComboBox fx:id="lieux" prefWidth="150.0" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER_LEFT">
                      <children>
                         <Label styleClass="text-secondary" text="notes coach:" />
-                        <TextArea prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2C3E50;" styleClass="text-area" />
+                        <TextArea fx:id="notes" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2C3E50;" styleClass="text-area" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER_LEFT">
@@ -44,11 +50,11 @@
                         <HBox alignment="CENTER" spacing="10.0">
                            <children>
                               <Label styleClass="text-secondary" text="debut" />
-                              <DatePicker />
+                              <DatePicker fx:id="dateDepart" />
                               <HBox spacing="5.0">
                                  <children>
-                                    <TextField prefHeight="28.0" prefWidth="35.0" text="HH" />
-                                    <TextField prefHeight="28.0" prefWidth="35.0" text="MM" />
+                                    <TextField fx:id="hours_depart" prefHeight="28.0" prefWidth="35.0" text="HH" />
+                                    <TextField fx:id="minutes_depart" prefHeight="28.0" prefWidth="35.0" text="MM" />
                                  </children>
                               </HBox>
                            </children>
@@ -60,21 +66,26 @@
                         <HBox alignment="CENTER" spacing="10.0">
                            <children>
                               <Label styleClass="text-secondary" text="fin  " />
-                              <DatePicker />
+                              <DatePicker fx:id="dateFin" />
                               <HBox spacing="5.0">
                                  <children>
-                                    <TextField prefHeight="28.0" prefWidth="35.0" text="HH" />
-                                    <TextField prefHeight="28.0" prefWidth="35.0" text="MM" />
+                                    <TextField fx:id="hours_fin" prefHeight="28.0" prefWidth="35.0" text="HH" />
+                                    <TextField fx:id="minutes_fin" prefHeight="28.0" prefWidth="35.0" text="MM" />
                                  </children>
                               </HBox>
                            </children>
                         </HBox>
                      </children>
                   </VBox>
-                  <Button mnemonicParsing="false" styleClass="btn-1" text="ajouter">
+                  <HBox alignment="CENTER" spacing="15.0">
                      <VBox.margin>
                         <Insets bottom="20.0" />
-                     </VBox.margin></Button>
+                     </VBox.margin>
+                     <children>
+                        <Button onMouseClicked="#onClickAddEntrainment" mnemonicParsing="false" styleClass="btn-1" text="ajouter" />
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#onClickCancel" styleClass="btn-3" text="annuler" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>

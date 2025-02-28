@@ -125,4 +125,24 @@ public class ServiceInstallationSportive extends BaseService implements IService
         }
         return installationSportives;
     }
+
+    public InstallationSportive getInstallationSportiveByName(String nom) throws SQLException {
+        String sql = "SELECT * FROM installationsportive WHERE nom = ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, nom);
+        ResultSet rs = stmt.executeQuery();
+        if(rs.next()) {
+            InstallationSportive returnedInstallationSportive = new InstallationSportive();
+            returnedInstallationSportive.setId(rs.getInt("id"));
+            returnedInstallationSportive.setNom(rs.getString("nom"));
+            returnedInstallationSportive.setAdresse(rs.getString("adresse"));
+            returnedInstallationSportive.setDisponible(rs.getBoolean("isDisponible"));
+            returnedInstallationSportive.setCapacite(rs.getInt("capacite"));
+            returnedInstallationSportive.setImage_url(rs.getString("image_url"));
+            returnedInstallationSportive.setTypeInstallation(TypeInstallation.valueOf(rs.getString("typeInstallation")));
+            returnedInstallationSportive.setManager(new ServiceUtilisateur().get(rs.getInt("manager_id")));
+            return returnedInstallationSportive;
+        }
+        return null;
+    }
 }

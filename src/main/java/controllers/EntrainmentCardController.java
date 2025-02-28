@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import models.AppMsg;
 import models.module2.Entrainment;
 import services.events.EventBus;
 import services.jdbc.module2.ServiceEntrainment;
@@ -12,6 +13,8 @@ import services.utilities.DateConverter;
 import services.utilities.ImageLoader;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EntrainmentCardController extends BaseController implements INavigation {
     @FXML
@@ -65,9 +68,13 @@ public class EntrainmentCardController extends BaseController implements INaviga
         try {
             // Delete the entrainment
             new ServiceEntrainment().delete(entrainment);
-
+            List<String> msg_success = new ArrayList<>();
+            msg_success.add("Entrainment supprimé");
+            AppMsg appMsg = new AppMsg(false, msg_success);
+            EventBus.publish("show-app-msg", appMsg);
             // Publish the "refresh-table" event to notify the table to refresh
             EventBus.publish("refresh-table", null);
+
 
             // Navigate back to the table view (you can handle it differently as needed)
         } catch (SQLException e) {

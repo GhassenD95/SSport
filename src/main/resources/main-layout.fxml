@@ -24,7 +24,7 @@
                            <children>
                               <ImageView fitHeight="61.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../../../Downloads/profile1.jpg" />
+                                    <Image url="@../../../../../Downloads/366776176_1303899720237312_2758255801243738068_n-modified.png" />
                                  </image>
                               </ImageView>
                               <VBox alignment="CENTER">
@@ -80,6 +80,32 @@
                </padding></VBox>
          </children>
       </GridPane>
+      <StackPane fx:id="overlay" prefHeight="150.0" prefWidth="200.0" styleClass="overlay" />
+      <HBox fx:id="appMsg" maxHeight="250.0" maxWidth="500.0" styleClass="card2">
+         <children>
+            <GridPane prefHeight="230.0" prefWidth="576.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="210.00001831054686" minHeight="10.0" prefHeight="201.2" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="127.59998168945314" minHeight="10.0" prefHeight="48.400000000000034" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label fx:id="msg" styleClass="text" text="Label" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" GridPane.rowIndex="1">
+                     <children>
+                        <Button onMouseClicked="#onClickHideAppMsg" mnemonicParsing="false" styleClass="btn-1" text="ok" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
    </children>
    <padding>
       <Insets bottom="13.0" left="13.0" right="13.0" top="13.0" />

@@ -182,5 +182,27 @@ public class ServiceEquipe extends BaseService implements IService<Equipe> {
     }*/
 
 
+    public Equipe getEquipeByName(String name) throws SQLException {
+        String sql = "SELECT * FROM equipe WHERE nom = ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, name);
+        ResultSet rs = stmt.executeQuery();
+        if(rs.next()) {
+            Equipe returnedEquipe = new Equipe();
+            returnedEquipe.setId(rs.getInt("id"));
+            returnedEquipe.setNom(rs.getString("nom"));
+            returnedEquipe.setSport(Sport.valueOf(rs.getString("sport")));
+            returnedEquipe.setIsLocal(rs.getBoolean("isLocal"));
 
+            int coach_id = rs.getInt("coach_id");
+            if (rs.wasNull()) {
+                returnedEquipe.setCoach(null);
+            } else {
+                returnedEquipe.setCoach( new ServiceUtilisateur().get(coach_id));
+            }
+            return returnedEquipe;
+
+        }
+        return null;
+    }
 }

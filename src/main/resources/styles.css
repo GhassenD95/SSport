@@ -1,318 +1,373 @@
-.root{
-    -fx-font-family: "Cascadia Code";  /* Or 'Roboto' if using a custom font */
-    -fx-background-color: #0C1222;
-    -fx-text-fill: #FFFFFF;
+.root {
+    -fx-font-family: "Cascadia Code";
+    -fx-background-color: #0A0A0A; /* Near black for base - Apple/Nike inspired darkness */
+    -fx-text-fill: #FFFFFF; /* Clean white text */
     -fx-font-size: 13px;
-
 }
 
-
-
-.card{
-    -fx-background-color: #182130;
-    -fx-border-radius: 20px;  /* Rounded border */
+.card {
+    -fx-background-color: #222222; /* Slightly lighter dark for cards */
+    -fx-border-radius: 20px;
     -fx-background-radius: 5px;
     -fx-text-fill: #FFFFFF;
     -fx-padding: 10px;
 }
 
-.card2{
-    -fx-background-color: #0C1222;
+.card2 {
+    -fx-background-color: #171717; /* Matching base color for secondary cards */
     -fx-text-fill: #FFFFFF;
     -fx-padding: 10px;
-
 }
 
-.btn-1{
-    -fx-background-color: #2dd4bf;
+.btn-1 {
+    -fx-background-color: #7E57C2; /* Rich, vibrant purple - premium, powerful, dynamic */
+    -fx-text-fill: #FFFFFF; /* White text */
+    -fx-background-radius: 4px; /* Slightly rounded corners */
+    -fx-font-weight: bold; /* Bold text for emphasis */
+    -fx-padding: 8px 15px; /* Comfortable padding */
 }
-.btn-1:hover{
-    -fx-background-color: #2dd4bf;
+.btn-1:hover {
+    -fx-background-color: #6A48A4; /* Darker purple on hover */
     -fx-cursor: hand;
+    -fx-translate-y: -1px; /* Subtle lift effect */
 }
-.title{
+.btn-1:pressed {
+    -fx-background-color: #563B87; /* Even darker when pressed */
+    -fx-translate-y: 0px; /* Return to original position when pressed */
+}
+.title {
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 25px;
 }
-.small{
-    -fx-text-fill: #F5F5F5;
-    -fx-font-size: 10px;
 
+.small {
+    -fx-text-fill: #BBBBBB; /* Light gray for secondary text */
+    -fx-font-size: 10px;
 }
-.text{
+
+.text {
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 13px;
-
 }
-.text-secondary{
-    -fx-text-fill: #7F8C8D;
+
+.text-secondary {
+    -fx-text-fill: #BBBBBB; /* Light gray for secondary text */
     -fx-font-size: 13px;
-
 }
 
-.btn-2{
+.btn-2 {
     -fx-opacity: 0.6;
 }
-.btn-2:hover{
+.btn-2:hover {
     -fx-opacity: 1;
     -fx-cursor: hand;
 }
 
 .link {
-    -fx-text-fill: #FFFFFF;  /* White color for text */
-    -fx-font-size: 13px;     /* Font size */
+    -fx-text-fill: #0A84FF; /* Apple blue for links */
+    -fx-font-size: 13px;
 }
 
 .link:hover {
-    -fx-text-decoration: underline;  /* Underline text on hover */
-    -fx-cursor: hand;  /* Change cursor to hand */
+    -fx-text-decoration: underline;
+    -fx-cursor: hand;
+    -fx-text-fill: #006ED0; /* Darker blue on hover */
 }
-/* Style for the whole scrollable area */
+
 .scroll-bar {
-    -fx-background-color: #1A242F;
+    -fx-background-color: #1E1E1E; /* Slightly lighter dark for scroll bar */
 }
 
-/* Style for the scrollbar track */
 .scroll-bar .track {
-    -fx-background-color: #34495E;
+    -fx-background-color: #121212; /* Base dark for track */
     -fx-background-radius: 5px;
 }
 
-/* Style for the scrollbar thumb */
 .scroll-bar .thumb {
-    -fx-background-color: #1ABC9C;
+    -fx-background-color: #424242; /* Medium gray for thumb - subtle */
     -fx-background-radius: 5px;
 }
 
-/* Style for the thumb when hovering */
 .scroll-bar .thumb:hover {
-    -fx-background-color: #16A085;
+    -fx-background-color: #686868; /* Lighter gray on hover */
 }
 
-/* Optional: Style for scrollbar buttons (arrows) */
 .scroll-bar .increment-button, .scroll-bar .decrement-button {
     -fx-background-color: transparent;
 }
 
-/* Arrow customization */
 .scroll-bar .increment-button .arrow, .scroll-bar .decrement-button .arrow {
-    -fx-fill: #FFFFFF;
-}
-/* Make the vertical scrollbar thinner */
-.scroll-bar:vertical {
-    -fx-pref-width: 10px; /* Set the desired width */
+    -fx-fill: #BBBBBB; /* Light gray for arrows */
 }
 
-/* Make the horizontal scrollbar thinner */
+.scroll-bar:vertical {
+    -fx-pref-width: 10px;
+}
+
 .scroll-bar:horizontal {
-    -fx-pref-height: 10px; /* Set the desired height */
+    -fx-pref-height: 10px;
 }
 
 .scroll-pane {
-    -fx-border-color: transparent;  /* Remove the border color */
-    -fx-border-width: 0;  /* Remove the border width */
-    -fx-background-color: transparent;  /* Optional: Set the background to transparent */
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-color: transparent;
 }
+
 .combo-box {
-    -fx-background-color: #2C3E50; /* Dark background for ComboBox */
-    -fx-border-color: #34495E; /* Slightly lighter border color */
-    -fx-border-radius: 5px; /* Slightly smaller rounded corners to match theme */
-    -fx-text-fill: #FFFFFF; /* White text color */
-    -fx-font-size: 9px; /* Set the font size */
+    -fx-background-color: #1E1E1E; /* Slightly lighter dark for combo box */
+    -fx-border-color: #424242; /* Medium gray border */
+    -fx-border-radius: 5px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 9px;
 }
 
 .combo-box .button {
-    -fx-background-color: #2dd4bf; /* Background color when the button is idle */
-    -fx-text-fill: #FFFFFF; /* White text color */
-    -fx-border-radius: 5px; /* Rounded border for the button */
-    -fx-font-size: 9px; /* Font size */
+    -fx-background-color: #424242; /* Medium gray for button - subtle */
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 5px;
+    -fx-font-size: 9px;
 }
 
 .combo-box .button:hover {
-    -fx-background-color: #16A085; /* Darker background on hover */
-    -fx-cursor: hand; /* Cursor changes to hand on hover */
+    -fx-background-color: #686868; /* Lighter gray on hover */
+    -fx-cursor: hand;
 }
 
 .combo-box .list-cell {
-    -fx-background-color: #34495E; /* Dropdown item background */
-    -fx-text-fill: #FFFFFF; /* Text color */
-    -fx-font-size: 9px; /* Font size */
+    -fx-background-color: #1E1E1E; /* Slightly lighter dark for list cells */
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 9px;
 }
 
 .combo-box .list-cell:hover {
-    -fx-background-color: #2C3E50; /* Background color when hovering */
+    -fx-background-color: #2A2A2A; /* Medium-dark gray on hover */
 }
 
 .combo-box:focused {
-    -fx-background-color: #16A085; /* Highlight color on focus */
-    -fx-border-color: #1ABC9C; /* Border color on focus */
+    -fx-background-color: #2A2A2A; /* Medium-dark gray when focused */
+    -fx-border-color: #FF2D55; /* Accent color border when focused */
 }
 
 .combo-box:disabled {
-    -fx-background-color: #7F8C8D; /* Disabled background */
-    -fx-text-fill: #BDC3C7; /* Disabled text color */
-    -fx-opacity: 0.5; /* Reduce opacity for disabled state */
+    -fx-background-color: #121212; /* Base color for disabled state */
+    -fx-text-fill: #777777; /* Medium gray for disabled text */
+    -fx-opacity: 0.5;
 }
-/* DatePicker Base */
+
 .date-picker {
-    -fx-background-color: #2C3E50; /* Dark background */
-    -fx-border-color: #34495E; /* Slightly lighter border */
+    -fx-background-color: #1E1E1E; /* Slightly lighter dark for date picker */
+    -fx-border-color: #424242; /* Medium gray border */
     -fx-border-radius: 5px;
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 15px;
 }
 
-/* DatePicker Editable Field */
 .date-picker .text-field {
-    -fx-background-color: #182130;
+    -fx-background-color: #1E1E1E; /* Slightly lighter dark for text field */
     -fx-text-fill: #FFFFFF;
     -fx-border-color: transparent;
     -fx-padding: 5px 10px;
 }
 
-/* DatePicker Popup Button */
 .date-picker .arrow-button {
-    -fx-background-color: #2dd4bf; /* Teal highlight */
+    -fx-background-color: #424242; /* Medium gray for arrow button - subtle */
     -fx-border-radius: 5px;
 }
 
 .date-picker .arrow-button:hover {
-    -fx-background-color: #16A085; /* Darker teal on hover */
+    -fx-background-color: #686868; /* Lighter gray on hover */
     -fx-cursor: hand;
 }
 
-/* DatePicker Calendar Popup */
 .date-picker-popup {
-    -fx-background-color: #182130;
-    -fx-border-color: #34495E;
+    -fx-background-color: #1E1E1E; /* Slightly lighter dark for popup */
+    -fx-border-color: #424242; /* Medium gray border */
     -fx-border-radius: 5px;
 }
 
-/* Calendar Cells */
 .date-picker .cell {
-    -fx-background-color: #34495E;
+    -fx-background-color: #2A2A2A; /* Medium-dark gray for cells */
     -fx-text-fill: #FFFFFF;
 }
 
 .date-picker .cell:hover {
-    -fx-background-color: #2C3E50;
+    -fx-background-color: #424242; /* Medium gray on hover */
 }
 
-/* Selected Date */
 .date-picker .cell:selected {
-    -fx-background-color: #2dd4bf;
-    -fx-text-fill: #000000;
-}
-
-/* Today’s Date */
-.date-picker .cell:focused {
-    -fx-background-color: #16A085;
+    -fx-background-color: #0A84FF; /* Apple blue for selected cell */
     -fx-text-fill: #FFFFFF;
 }
 
-/* Disabled Dates */
+.date-picker .cell:focused {
+    -fx-background-color: #006ED0; /* Darker blue when focused */
+    -fx-text-fill: #FFFFFF;
+}
+
 .date-picker .cell:disabled {
-    -fx-background-color: #7F8C8D;
-    -fx-text-fill: #BDC3C7;
+    -fx-background-color: #2A2A2A; /* Medium-dark for disabled state */
+    -fx-text-fill: #777777; /* Medium gray for disabled text */
     -fx-opacity: 0.5;
 }
+
+.date-picker:focused {
+    -fx-background-color: #2A2A2A; /* Medium-dark gray when focused */
+    -fx-border-color: #FF2D55; /* Accent color border when focused */
+}
+
 .text-field {
-    -fx-background-color: #182130;  /* Dark background */
-    -fx-border-color: #34495E;      /* Slightly lighter border color */
-    -fx-border-radius: 5px;         /* Rounded corners */
-    -fx-text-fill: #FFFFFF;         /* White text color */
-    -fx-font-size: 13px;            /* Font size */
-    -fx-padding: 5px 10px;          /* Padding inside the TextField */
+    -fx-background-color: #1E1E1E; /* Slightly lighter dark for text field */
+    -fx-border-color: #424242; /* Medium gray border */
+    -fx-border-radius: 5px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-padding: 5px 10px;
 }
 
-/* Focused TextField */
 .text-field:focused {
-    -fx-background-color: #16A085; /* Highlight color on focus */
-    -fx-border-color: #1ABC9C;     /* Border color on focus */
+    -fx-background-color: #2A2A2A; /* Medium-dark gray when focused */
+    -fx-border-color: #FF2D55; /* Accent color border when focused */
 }
 
-/* Disabled TextField */
 .text-field:disabled {
-    -fx-background-color: #7F8C8D; /* Disabled background */
-    -fx-text-fill: #BDC3C7;        /* Disabled text color */
-    -fx-opacity: 0.5;              /* Reduced opacity for disabled state */
+    -fx-background-color: #121212; /* Base color for disabled state */
+    -fx-text-fill: #777777; /* Medium gray for disabled text */
+    -fx-opacity: 0.5;
 }
 
-/* TextField when hovered */
 .text-field:hover {
-    -fx-background-color: #2C3E50; /* Slightly lighter background on hover */
-    -fx-border-color: #34495E;     /* Slightly lighter border color */
-    -fx-cursor: text;              /* Change cursor to text on hover */
-}
-/* Style for the TextArea */
-.text-area {
-    -fx-background-color: #182130;  /* Dark background for the whole TextArea */
-    -fx-border-color: #34495E;      /* Slightly lighter border color */
-    -fx-border-radius: 5px;         /* Rounded corners */
-    -fx-text-fill: #FFFFFF;         /* White text color */
-    -fx-font-size: 13px;            /* Font size */
-    -fx-pref-height: 100px;         /* Default height for the TextArea */
+    -fx-background-color: #2A2A2A; /* Medium-dark gray on hover */
+    -fx-border-color: #686868; /* Lighter gray border on hover */
+    -fx-cursor: text;
 }
 
-/* Style for the TextArea */
 .text-area {
-    -fx-background-color: #182130;  /* Dark background for the whole TextArea */
-    -fx-border-color: #34495E;      /* Slightly lighter border color */
-    -fx-border-radius: 5px;         /* Rounded corners */
-    -fx-text-fill: #FFFFFF;         /* White text color */
-    -fx-font-size: 13px;            /* Font size */
-    -fx-pref-height: 100px;         /* Default height for the TextArea */
+    -fx-background-color: #1E1E1E; /* Slightly lighter dark for text area */
+    -fx-border-color: #424242; /* Medium gray border */
+    -fx-border-radius: 5px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-pref-height: 100px;
 }
 
-/* Style for the TextArea's content (the text box part) */
 .text-area .content {
-    -fx-background-color: #182130;  /* Dark background for the text area */
-    -fx-text-fill: #FFFFFF;         /* White text color */
+    -fx-background-color: #1E1E1E; /* Slightly lighter dark for content */
+    -fx-text-fill: #FFFFFF;
 }
 
-/* Style for the TextArea's scroll pane */
 .text-area .scroll-pane {
-    -fx-background-color: transparent;  /* Make the scroll pane transparent */
+    -fx-background-color: transparent;
 }
 
-/* Style for the TextArea's viewport */
 .text-area .scroll-pane .viewport {
-    -fx-background-color: #182130;  /* Match the background color of the TextArea */
+    -fx-background-color: #1E1E1E; /* Slightly lighter dark for viewport */
 }
 
-/* Style for the TextArea's scroll bars */
 .text-area .scroll-bar:vertical,
 .text-area .scroll-bar:horizontal {
-    -fx-background-color: #1A242F;  /* Dark background for the scroll bars */
+    -fx-background-color: #121212; /* Base dark for scroll bars */
 }
 
-/* Style for the scrollbar thumb */
 .text-area .scroll-bar .thumb {
-    -fx-background-color: #1ABC9C;  /* Teal color for the thumb */
-    -fx-background-radius: 5px;     /* Rounded corners for the thumb */
+    -fx-background-color: #424242; /* Medium gray for thumb - subtle */
+    -fx-background-radius: 5px;
 }
 
-/* Style for the scrollbar thumb when hovered */
 .text-area .scroll-bar .thumb:hover {
-    -fx-background-color: #16A085;  /* Darker teal on hover */
+    -fx-background-color: #686868; /* Lighter gray on hover */
 }
 
-/* Focused TextArea */
 .text-area:focused {
-    -fx-background-color: #16A085; /* Highlight color on focus */
-    -fx-border-color: #1ABC9C;     /* Border color on focus */
+    -fx-background-color: #2A2A2A; /* Medium-dark gray when focused */
+    -fx-border-color: #FF2D55; /* Accent color border when focused */
 }
 
-/* Disabled TextArea */
 .text-area:disabled {
-    -fx-background-color: #7F8C8D; /* Disabled background */
-    -fx-text-fill: #BDC3C7;        /* Disabled text color */
-    -fx-opacity: 0.5;              /* Reduced opacity for disabled state */
+    -fx-background-color: #121212; /* Base color for disabled state */
+    -fx-text-fill: #777777; /* Medium gray for disabled text */
+    -fx-opacity: 0.5;
 }
 
-/* TextArea when hovered */
 .text-area:hover {
-    -fx-background-color: #2C3E50; /* Slightly lighter background on hover */
-    -fx-border-color: #34495E;     /* Slightly lighter border color */
-    -fx-cursor: text;              /* Change cursor to text on hover */
+    -fx-background-color: #2A2A2A; /* Medium-dark gray on hover */
+    -fx-border-color: #686868; /* Lighter gray border on hover */
+    -fx-cursor: text;
+}
+
+.btn-3 {
+    -fx-background-color: #3A3A3A; /* Medium-dark gray background */
+    -fx-text-fill: #DDDDDD; /* Light gray text - almost white */
+    -fx-background-radius: 4px;
+    -fx-padding: 8px 15px;
+    -fx-border-width: 0;
+}
+.btn-3:hover {
+    -fx-background-color: #505050; /* Lighter gray on hover */
+    -fx-text-fill: #FFFFFF; /* Pure white text on hover */
+    -fx-cursor: hand;
+}
+.btn-3:pressed {
+    -fx-background-color: #606060; /* Even lighter when pressed */
+    -fx-text-fill: #FFFFFF;
+}
+
+
+/* Message Card Container */
+.app-msg {
+    -fx-background-color: #222222; /* Dark background to match the app theme */
+    -fx-background-radius: 10px; /* Rounded corners */
+    -fx-border-radius: 10px; /* Rounded corners for the border */
+    -fx-border-color: #424242; /* Subtle border color */
+    -fx-border-width: 1px;
+    -fx-padding: 20px; /* Padding inside the card */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0); /* Shadow for depth */
+    -fx-alignment: center; /* Center content */
+    -fx-spacing: 10px; /* Spacing between children */
+}
+
+/* Message Label */
+.app-msg .label {
+    -fx-text-fill: #FFFFFF; /* White text for contrast */
+    -fx-font-size: 14px; /* Readable font size */
+    -fx-font-weight: bold; /* Bold text for emphasis */
+    -fx-wrap-text: true; /* Wrap long text */
+    -fx-alignment: center; /* Center text */
+}
+
+/* Close Button */
+.app-msg .button {
+    -fx-background-color: #7E57C2; /* Vibrant purple to match the app's primary button color */
+    -fx-text-fill: #FFFFFF; /* White text */
+    -fx-font-size: 13px; /* Consistent font size */
+    -fx-background-radius: 4px; /* Slightly rounded corners */
+    -fx-padding: 8px 15px; /* Comfortable padding */
+    -fx-cursor: hand; /* Pointer cursor on hover */
+}
+
+.app-msg .button:hover {
+    -fx-background-color: #6A48A4; /* Darker purple on hover */
+}
+
+.app-msg .button:pressed {
+    -fx-background-color: #563B87; /* Even darker when pressed */
+}
+
+/* Animation for Message Card */
+@keyframes fadeIn {
+    from {
+        -fx-opacity: 0;
+    }
+    to {
+        -fx-opacity: 1;
+    }
+}
+
+.app-msg {
+    -fx-opacity: 0; /* Initially invisible */
+    -fx-animation: fadeIn 0.3s ease-in-out forwards; /* Fade-in animation */
+}
+
+.overlay{
+    -fx-background-color: rgba(0, 0, 0, 0.3); /* Dark but slightly transparent */
 }

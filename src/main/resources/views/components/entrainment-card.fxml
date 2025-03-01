@@ -115,7 +115,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1">
                                        <children>
-                                          <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 13;" styleClass="link" text="voir plus" />
+                                          <Label onMouseClicked="#onClickShowEntrainment" style="-fx-text-fill: #FFFFFF; -fx-font-size: 13;" styleClass="link" text="voir plus" />
                                        </children>
                                        <padding>
                                           <Insets right="5.0" />

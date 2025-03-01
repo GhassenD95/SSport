@@ -82,4 +82,16 @@ public class EntrainmentCardController extends BaseController implements INaviga
         }
     }
 
+    public void onClickEdit(MouseEvent actionEvent) {
+
+    }
+
+    public void onClickShowEntrainment(MouseEvent actionEvent) {
+        if (data instanceof Entrainment) {
+            Entrainment entrainment = (Entrainment) data;
+            EventBus.publish("refresh-view", "/views/entrainment/entrainment-show-component.fxml", entrainment);
+
+        }
+
+    }
 }

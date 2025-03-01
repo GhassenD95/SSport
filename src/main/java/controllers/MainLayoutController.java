@@ -58,6 +58,13 @@ public class MainLayoutController {
             mainContent.getChildren().clear();
             navigationService.navigateTo(fxml);
         });
+
+        EventBus.subscribe("refresh-view", (String fxml, Object data) -> {
+            mainContent.getChildren().clear();
+            navigationService.navigateTo(fxml, data);
+        });
+
+
         navigationService.navigateTo("/views/entrainment/entrainment.fxml");
     }
 
@@ -69,9 +76,9 @@ public class MainLayoutController {
         }
         msg.setText(message);
         if (isError) {
-            msg.setStyle("-fx-text-fill: red;");
+            msg.setStyle("-fx-text-fill: #DF2E38;");
         }else {
-            msg.setStyle("-fx-text-fill: green;");
+            msg.setStyle("-fx-text-fill: #5D9C59;");
         }
 
         appMsg.setVisible(true);

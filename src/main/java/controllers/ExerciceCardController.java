@@ -1,13 +1,16 @@
 package controllers;
 
 import common.INavigation;
-import enums.TypeExercice;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import models.module2.Exercice;
+import services.events.EventBus;
+import services.jdbc.module2.ServiceExercice;
 import services.utilities.ImageLoader;
+
+import java.sql.SQLException;
 
 public class ExerciceCardController extends BaseController implements INavigation {
 
@@ -38,6 +41,15 @@ public class ExerciceCardController extends BaseController implements INavigatio
             String imageUrl = ex.getImage_url();
 
             image.setImage(ImageLoader.loadImage("exercices", imageUrl));
+        }
+    }
+
+    public void onClickDelete(MouseEvent event) {
+        try {
+            new ServiceExercice().delete((Exercice) this.data);
+            EventBus.publish("refresh-view", "/views/exercices/list-exercices.fxml");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }

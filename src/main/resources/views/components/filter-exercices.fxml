@@ -10,7 +10,7 @@
          <children>
             <HBox alignment="CENTER">
                <children>
-                  <TextField prefHeight="28.0" prefWidth="359.0" promptText="Rechercher des exercices par nom.." />
+                  <TextField fx:id="filter" prefHeight="28.0" prefWidth="359.0" promptText="Rechercher des exercices par nom.." />
                </children>
             </HBox>
             <HBox styleClass="btn-2" alignment="CENTER_RIGHT">

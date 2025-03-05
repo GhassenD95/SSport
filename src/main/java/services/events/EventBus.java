@@ -1,36 +1,39 @@
 package services.events;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public class EventBus {
 
-    private static final Map<String, Consumer<?>> singleListeners = new HashMap<>();
-    private static final Map<String, BiConsumer<?, ?>> dualListeners = new HashMap<>();
+    private static final Map<String, List<Consumer<Object>>> singleListeners = new HashMap<>();
+    private static final Map<String, List<BiConsumer<Object, Object>>> dualListeners = new HashMap<>();
 
-    // OLD: Subscribe with a single parameter
+    // Subscribe with a single parameter
     public static <T> void subscribe(String eventType, Consumer<T> listener) {
-        singleListeners.put(eventType, listener);
+        singleListeners.computeIfAbsent(eventType, k -> new ArrayList<>()).add((Consumer<Object>) listener);
     }
 
-    // NEW: Subscribe with two parameters
+    // Subscribe with two parameters
     public static <T, U> void subscribe(String eventType, BiConsumer<T, U> listener) {
-        dualListeners.put(eventType, listener);
+        dualListeners.computeIfAbsent(eventType, k -> new ArrayList<>()).add((BiConsumer<Object, Object>) listener);
     }
 
-    // OLD: Publish a single parameter event
+    // Publish a single parameter event
     public static <T> void publish(String eventType, T message) {
         if (singleListeners.containsKey(eventType)) {
-            ((Consumer<T>) singleListeners.get(eventType)).accept(message);
+            for (Consumer<Object> listener : singleListeners.get(eventType)) {
+                listener.accept(message);
+            }
         }
     }
 
-    // NEW: Publish an event with two parameters
+    // Publish an event with two parameters
     public static <T, U> void publish(String eventType, T message1, U message2) {
         if (dualListeners.containsKey(eventType)) {
-            ((BiConsumer<T, U>) dualListeners.get(eventType)).accept(message1, message2);
+            for (BiConsumer<Object, Object> listener : dualListeners.get(eventType)) {
+                listener.accept(message1, message2);
+            }
         }
     }
 }

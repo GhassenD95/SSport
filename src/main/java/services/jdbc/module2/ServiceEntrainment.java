@@ -1,6 +1,8 @@
 package services.jdbc.module2;
 
+import models.module1.Utilisateur;
 import models.module2.Entrainment;
+import models.module6.InstallationSportive;
 import services.jdbc.BaseService;
 import services.jdbc.IService;
 import services.jdbc.module1.ServiceEquipe;
@@ -9,8 +11,10 @@ import services.jdbc.module6.ServiceInstallationSportive;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ServiceEntrainment extends BaseService implements IService<Entrainment>  {
     @Override
@@ -201,4 +205,68 @@ public class ServiceEntrainment extends BaseService implements IService<Entrainm
         }
         return returnedEntrainments;
     }
+
+    public List<Entrainment> getFilteredEntrainments(Map<String, Object> filters) throws SQLException {
+        List<Entrainment> returnedEntrainments = new ArrayList<>();
+
+        // Base SQL query
+        StringBuilder sql = new StringBuilder("SELECT * FROM entrainment WHERE 1=1");
+
+        // Add filters based on the provided criteria in the Map
+        if (filters.containsKey("coach") && filters.get("coach") != null) {
+            sql.append(" AND equipe_id IN (SELECT id FROM equipe WHERE coach_id = ?)");
+        }
+        if (filters.containsKey("installation") && filters.get("installation") != null) {
+            sql.append(" AND installationSportive_id = ?");
+        }
+        if (filters.containsKey("startDate") && filters.get("startDate") != null) {
+            sql.append(" AND dateDebut >= ?");
+        }
+        if (filters.containsKey("endDate") && filters.get("endDate") != null) {
+            sql.append(" AND dateFin <= ?");
+        }
+
+        // Prepare the statement
+        PreparedStatement stmt = con.prepareStatement(sql.toString());
+
+        // Set parameters for the filters
+        int parameterIndex = 1;
+        if (filters.containsKey("coach") && filters.get("coach") != null) {
+            Utilisateur coach = (Utilisateur) filters.get("coach");
+            stmt.setInt(parameterIndex++, coach.getId());
+        }
+        if (filters.containsKey("installation") && filters.get("installation") != null) {
+            InstallationSportive installation = (InstallationSportive) filters.get("installation");
+            stmt.setInt(parameterIndex++, installation.getId());
+        }
+        if (filters.containsKey("startDate") && filters.get("startDate") != null) {
+            LocalDate startDate = (LocalDate) filters.get("startDate");
+            stmt.setTimestamp(parameterIndex++, java.sql.Timestamp.valueOf(startDate.atStartOfDay()));
+        }
+        if (filters.containsKey("endDate") && filters.get("endDate") != null) {
+            LocalDate endDate = (LocalDate) filters.get("endDate");
+            stmt.setTimestamp(parameterIndex++, java.sql.Timestamp.valueOf(endDate.atStartOfDay()));
+        }
+
+        // Execute the query
+        ResultSet rs = stmt.executeQuery();
+
+        // Process the results
+        while (rs.next()) {
+            Entrainment returnedEntrainment = new Entrainment();
+            returnedEntrainment.setId(rs.getInt("id"));
+            returnedEntrainment.setNom(rs.getString("nom"));
+            returnedEntrainment.setDescription(rs.getString("description"));
+            returnedEntrainment.setDateDebut(rs.getTimestamp("dateDebut").toLocalDateTime());
+            returnedEntrainment.setDateFin(rs.getTimestamp("dateFin").toLocalDateTime());
+            returnedEntrainment.setEquipe(new ServiceEquipe().get(rs.getInt("equipe_id")));
+            returnedEntrainment.setInstallationSportive(new ServiceInstallationSportive().get(rs.getInt("installationSportive_id")));
+            returnedEntrainment.setExercices(new ServiceExercice().getExercicesByEntrainment(returnedEntrainment));
+
+            returnedEntrainments.add(returnedEntrainment);
+        }
+
+        return returnedEntrainments;
+    }
+
 }

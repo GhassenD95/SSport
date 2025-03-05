@@ -1,5 +1,7 @@
 package services.jdbc.module2;
 
+import enums.TypeExercice;
+import models.module2.Entrainment;
 import models.module2.Exercice;
 import services.jdbc.BaseService;
 import services.jdbc.IService;
@@ -74,6 +76,8 @@ public class ServiceExercice extends BaseService implements IService<Exercice> {
             returnedExcercice.setSets(rs.getInt("sets"));
             returnedExcercice.setReps(rs.getInt("reps"));
             returnedExcercice.setImage_url(rs.getString("image_url"));
+            returnedExcercice.setTypeExercice(TypeExercice.valueOf(rs.getString("typeExercice")));
+
             return returnedExcercice;
 
         }
@@ -94,6 +98,7 @@ public class ServiceExercice extends BaseService implements IService<Exercice> {
             exercice.setDureeMinutes(rs.getInt("dureeMinutes"));
             exercice.setSets(rs.getInt("sets"));
             exercice.setReps(rs.getInt("reps"));
+            exercice.setTypeExercice(TypeExercice.valueOf(rs.getString("typeExercice")));
             exercice.setImage_url(rs.getString("image_url"));
             exercices.add(exercice);
 
@@ -101,6 +106,30 @@ public class ServiceExercice extends BaseService implements IService<Exercice> {
         return exercices;
     }
 
+    public List<Exercice> getExercicesByEntrainment(Entrainment entrainment) throws SQLException {
+        List<Exercice> exercices = new ArrayList<>();
+        String sql = "SELECT e.id, e.nom, e.typeExercice, e.dureeMinutes, e.sets, e.reps, e.image_url " +
+                "FROM exercice e " +
+                "JOIN exercice_entrainment ee ON e.id = ee.exercice_id " +
+                "WHERE ee.entrainment_id = ?";
 
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setInt(1, entrainment.getId());
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            Exercice exercice = new Exercice();
+            exercice.setId(rs.getInt("id"));
+            exercice.setNom(rs.getString("nom"));
+            exercice.setDureeMinutes(rs.getInt("dureeMinutes"));
+            exercice.setSets(rs.getInt("sets"));
+            exercice.setReps(rs.getInt("reps"));
+            exercice.setImage_url(rs.getString("image_url"));
+            exercice.setTypeExercice(TypeExercice.valueOf(rs.getString("typeExercice")));
+
+            exercices.add(exercice);
+
+        }
+        return exercices;
+    }
 
 }

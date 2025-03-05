@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<StackPane stylesheets="@../../styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListExercicesController">
+   <children>
+      <VBox spacing="10.0">
+         <children>
+            <VBox fx:id="title" />
+            <VBox fx:id="content" />
+
+         </children>
+      </VBox>
+   </children>
+</StackPane>

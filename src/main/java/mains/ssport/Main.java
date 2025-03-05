@@ -7,12 +7,17 @@ import services.jdbc.module1.ServiceEquipe;
 import services.jdbc.module2.ServiceEntrainment;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        List<Entrainment> entrainments = new ArrayList<>();
         try {
-            System.out.println(new ServiceEquipe().getEquipeByName("equip1"));
+            entrainments = new ServiceEntrainment().getAll();
+            for (Entrainment e : entrainments) {
+                System.out.println(e);
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -84,7 +84,7 @@ public class ServiceEntrainment extends BaseService implements IService<Entrainm
             returnedEntrainment.setDateFin(rs.getTimestamp("dateFin").toLocalDateTime());
             returnedEntrainment.setEquipe(new ServiceEquipe().get(rs.getInt("equipe_id")));
             returnedEntrainment.setInstallationSportive(new ServiceInstallationSportive().get(rs.getInt("installationSportive_id")));
-
+            returnedEntrainment.setExercices(new ServiceExercice().getExercicesByEntrainment(returnedEntrainment));
             return returnedEntrainment;
         }
         return null;
@@ -107,7 +107,7 @@ public class ServiceEntrainment extends BaseService implements IService<Entrainm
             returnedEntrainment.setDateFin(rs.getTimestamp("dateFin").toLocalDateTime());
             returnedEntrainment.setEquipe(new ServiceEquipe().get(rs.getInt("equipe_id")));
             returnedEntrainment.setInstallationSportive(new ServiceInstallationSportive().get(rs.getInt("installationSportive_id")));
-
+            returnedEntrainment.setExercices(new ServiceExercice().getExercicesByEntrainment(returnedEntrainment));
             returnedEntrainments.add(returnedEntrainment);
         }
         return returnedEntrainments;
@@ -128,7 +128,7 @@ public class ServiceEntrainment extends BaseService implements IService<Entrainm
             returnedEntrainment.setDateFin(rs.getTimestamp("dateFin").toLocalDateTime());
             returnedEntrainment.setEquipe(new ServiceEquipe().get(rs.getInt("equipe_id")));
             returnedEntrainment.setInstallationSportive(new ServiceInstallationSportive().get(rs.getInt("installationSportive_id")));
-
+            returnedEntrainment.setExercices(new ServiceExercice().getExercicesByEntrainment(returnedEntrainment));
             returnedEntrainments.add(returnedEntrainment);
         }
         return returnedEntrainments;
@@ -150,7 +150,7 @@ public class ServiceEntrainment extends BaseService implements IService<Entrainm
             returnedEntrainment.setDateFin(rs.getTimestamp("dateFin").toLocalDateTime());
             returnedEntrainment.setEquipe(new ServiceEquipe().get(rs.getInt("equipe_id")));
             returnedEntrainment.setInstallationSportive(new ServiceInstallationSportive().get(rs.getInt("installationSportive_id")));
-
+            returnedEntrainment.setExercices(new ServiceExercice().getExercicesByEntrainment(returnedEntrainment));
             returnedEntrainments.add(returnedEntrainment);
         }
         return returnedEntrainments;
@@ -172,6 +172,7 @@ public class ServiceEntrainment extends BaseService implements IService<Entrainm
             returnedEntrainment.setDateFin(rs.getTimestamp("dateFin").toLocalDateTime());
             returnedEntrainment.setEquipe(new ServiceEquipe().get(rs.getInt("equipe_id")));
             returnedEntrainment.setInstallationSportive(new ServiceInstallationSportive().get(rs.getInt("installationSportive_id")));
+            returnedEntrainment.setExercices(new ServiceExercice().getExercicesByEntrainment(returnedEntrainment));
 
             returnedEntrainments.add(returnedEntrainment);
         }
@@ -193,6 +194,7 @@ public class ServiceEntrainment extends BaseService implements IService<Entrainm
             returnedEntrainment.setDateFin(rs.getTimestamp("dateFin").toLocalDateTime());
             returnedEntrainment.setEquipe(new ServiceEquipe().get(rs.getInt("equipe_id")));
             returnedEntrainment.setInstallationSportive(new ServiceInstallationSportive().get(rs.getInt("installationSportive_id")));
+            returnedEntrainment.setExercices(new ServiceExercice().getExercicesByEntrainment(returnedEntrainment));
 
             returnedEntrainments.add(returnedEntrainment);
 

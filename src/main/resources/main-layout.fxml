@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<StackPane prefHeight="600" prefWidth="1000" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainLayoutController">
+<StackPane prefHeight="600" prefWidth="1000" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainLayoutController">
    <children>
       <GridPane hgap="13.0">
         <columnConstraints>
@@ -52,11 +59,26 @@
                      <children>
                         <VBox alignment="CENTER" prefHeight="350.0" prefWidth="192.0" spacing="40.0">
                            <children>
-                              <Label style="-fx-font-size: 13; -fx-text-fill: #FFFFFF;" text="acceuil" />
-                              <Label layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 13;" text="entrainments" />
-                              <Label layoutX="10.0" layoutY="25.0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 13;" text="utilisateurs" />
-                              <Label layoutX="10.0" layoutY="121.0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 13;" text="matchs" />
-                              <Label layoutX="32.0" layoutY="176.0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 13;" text="tournois" />
+                              <HBox alignment="CENTER" styleClass="sidebar-btn">
+                                 <children>
+                                    <Label style="-fx-font-size: 13; -fx-text-fill: #FFFFFF;" styleClass="si" text="acceuil" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" onMouseClicked="#onClickNavigateToEntrainments" styleClass="sidebar-btn">
+                                 <children>
+                                    <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 13;" text="entrainments" />
+                                 </children>
+                              </HBox>
+                              <HBox onMouseClicked="#onClickNavigateToExercices" alignment="CENTER" styleClass="sidebar-btn">
+                                 <children>
+                                    <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 13;" text="exercices" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" styleClass="sidebar-btn">
+                                 <children>
+                                    <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 13;" text="notifications" />
+                                 </children>
+                              </HBox>
                            </children>
                         </VBox>
                      </children>
@@ -99,7 +121,7 @@
                   </HBox>
                   <HBox alignment="CENTER" GridPane.rowIndex="1">
                      <children>
-                        <Button onMouseClicked="#onClickHideAppMsg" mnemonicParsing="false" styleClass="btn-1" text="ok" />
+                        <Button mnemonicParsing="false" onMouseClicked="#onClickHideAppMsg" styleClass="btn-1" text="ok" />
                      </children>
                   </HBox>
                </children>

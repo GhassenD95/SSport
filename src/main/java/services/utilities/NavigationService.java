@@ -13,10 +13,10 @@ public class NavigationService {
 
     // lblasa lfil layout win yenjecti el views
     //nesthakouha fil navigation
-    private final VBox mainContent;
+    private final Pane mainContent;
 
     //constructor
-    public NavigationService(VBox mainContent) {
+    public NavigationService(Pane mainContent) {
         this.mainContent = mainContent;
     }
 
@@ -47,7 +47,7 @@ public class NavigationService {
         navigateTo(fxml,null);
     }
 
-    public void loadComponent(String fxml, VBox container, Object data){
+    public void loadComponent(String fxml, Pane container, Object data){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             Parent component = loader.load();
@@ -67,7 +67,7 @@ public class NavigationService {
 
     }
 
-    public void loadComponent(String fxml, VBox container) {
+    public void loadComponent(String fxml, Pane container) {
         loadComponent(fxml, container, null);
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane prefWidth="800.0" styleClass="card2" stylesheets="@../../styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AssignedExercicesController">
+   <children>
+      <VBox spacing="5.0">
+         <children>
+            <HBox>
+               <children>
+                  <Label styleClass="text" text="Exercices planifies:" />
+               </children>
+            </HBox>
+            <HBox fx:id="exercicesImgContainer" prefHeight="100.0" prefWidth="200.0" spacing="5.0" />
+         </children>
+      </VBox>
+   </children>
+</StackPane>

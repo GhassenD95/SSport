@@ -54,6 +54,8 @@ public class MainLayoutController {
         //set nav service
         //main content where everything wll be injected
         this.navigationService = new NavigationService(mainContent);
+
+
         EventBus.subscribe("refresh-view", (String fxml) -> {
             mainContent.getChildren().clear();
             navigationService.navigateTo(fxml);
@@ -91,5 +93,13 @@ public class MainLayoutController {
 
     public void onClickHideAppMsg(MouseEvent event) {
         EventBus.publish("hide-app-msg", event);
+    }
+
+    public void onClickNavigateToEntrainments(MouseEvent event) {
+        EventBus.publish("refresh-view", "/views/entrainment/entrainment.fxml");
+    }
+
+    public void onClickNavigateToExercices(MouseEvent event) {
+        EventBus.publish("refresh-view", "/views/exercices/list-exercices.fxml");
     }
 }

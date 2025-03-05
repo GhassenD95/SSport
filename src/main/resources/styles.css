@@ -62,6 +62,12 @@
     -fx-opacity: 1;
     -fx-cursor: hand;
 }
+.sidebar-btn{
+
+}
+.sidebar-btn:hover {
+    -fx-cursor: hand;
+}
 
 .link {
     -fx-text-fill: #0A84FF; /* Apple blue for links */

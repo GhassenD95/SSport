@@ -4,11 +4,15 @@ import common.INavigation;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import models.module2.Entrainment;
+import models.module2.Exercice;
 import services.utilities.DateConverter;
 import services.utilities.ImageLoader;
 import services.utilities.NavigationService;
+
+import java.util.List;
 
 public class EntrainmentShowComponentController extends BaseController implements INavigation {
     @FXML
@@ -31,6 +35,10 @@ public class EntrainmentShowComponentController extends BaseController implement
 
     @FXML
     private VBox title;
+    @FXML
+    private VBox exercices;
+
+    private List<Exercice> exercicesList;
 
     @Override
     public void setData(Object data) {
@@ -45,14 +53,18 @@ public class EntrainmentShowComponentController extends BaseController implement
             fin.setText(DateConverter.formatDate(entrainment.getDateFin()));
             String imageName = entrainment.getInstallationSportive().getImage_url();
             image.setImage(ImageLoader.loadImage("batiments", imageName));
+            this.exercicesList = entrainment.getExercices();
+            navigationService.loadComponent("/views/components/assigned-exercices.fxml", exercices, this.exercicesList);
 
         }
     }
 
 
     public void initialize() {
+        System.out.println(this.exercicesList);
         this.navigationService = new NavigationService(title);
         navigationService.loadComponent("/views/components/title-banner.fxml", title, "Detail Entrainment");
+
 
     }
 

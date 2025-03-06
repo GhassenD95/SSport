@@ -13,6 +13,7 @@ module mains.ssport {
     requires java.sql;
     requires okhttp3;
     requires org.json;
+    requires java.desktop;
 
     opens mains.ssport to javafx.fxml;
     exports mains.ssport;

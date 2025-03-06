@@ -3,9 +3,11 @@ package mains.ssport;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class HelloApplication extends Application {
     @Override
@@ -14,6 +16,7 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
         stage.setResizable(false);  // Prevent resizing
         stage.setMaximized(false);  // Prevent maximizing
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/sports.png")))); // Load icon
         stage.setTitle("Hello SSport!");
         stage.setScene(scene);
         stage.show();

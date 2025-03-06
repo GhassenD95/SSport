@@ -10,7 +10,6 @@ import org.json.JSONObject;
 import services.utilities.ConfigLoader;
 
 import java.io.IOException;
-//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
 public class ChatbotController {
     @FXML
     private TextField input;

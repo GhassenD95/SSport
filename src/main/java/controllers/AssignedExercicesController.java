@@ -51,7 +51,7 @@ public class AssignedExercicesController extends BaseController implements INavi
             ImageView exerciceImg = new ImageView();
             exerciceImg.setFitHeight(50);
             exerciceImg.setFitWidth(50);
-            exerciceImg.setImage(ImageLoader.loadImage("exercices", exercice.getImage_url()));
+            exerciceImg.setImage(ImageLoader.loadImageFromUrl(exercice.getImage_url()));
 
             // Add click event handler to delete the exercise
             exerciceImg.setOnMouseClicked(event -> deleteExercice(exercice, event));

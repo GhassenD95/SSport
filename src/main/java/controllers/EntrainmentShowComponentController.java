@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.web.WebView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import models.module2.Entrainment;
 import models.module2.Exercice;
@@ -123,6 +124,7 @@ public class EntrainmentShowComponentController extends BaseController implement
         Stage mapStage = new Stage();
         mapStage.setTitle("Map: " + address);
         mapStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/map.png")))); // Load icon
+        mapStage.initModality(Modality.APPLICATION_MODAL);
 
         // Create a WebView to load the map URL
         WebView webView = new WebView();

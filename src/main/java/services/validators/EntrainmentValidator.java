@@ -3,6 +3,7 @@ package services.validators;
 import models.module2.Entrainment;
 import models.module6.InstallationSportive;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +61,8 @@ public class EntrainmentValidator {
             return false;
         }
 
-       /* for (Entrainment existingEntrainment : installationSportive.getEntrainments()) {
+        // Check for overlapping time slots
+        for (Entrainment existingEntrainment : installationSportive.getEntrainments()) {
             if (existingEntrainment.getDateDebut() == null || existingEntrainment.getDateFin() == null) {
                 continue;
             }
@@ -69,7 +71,7 @@ public class EntrainmentValidator {
                     entrainment.getDateFin().isAfter(existingEntrainment.getDateDebut())) {
                 return false;
             }
-        }*/
+        }
         return true;
     }
 
@@ -83,12 +85,20 @@ public class EntrainmentValidator {
             return;
         }
 
+        // Check if the start date is in the future
         if (entrainment.getDateDebut().isBefore(LocalDateTime.now())) {
             errors.add("La date de début doit être dans le futur.");
         }
 
+        // Check if the end date is after the start date
         if (entrainment.getDateFin().isBefore(entrainment.getDateDebut())) {
             errors.add("La date de fin doit être après la date de début.");
+        }
+
+        // Check if the reservation duration is more than 8 hours
+        Duration duration = Duration.between(entrainment.getDateDebut(), entrainment.getDateFin());
+        if (duration.toHours() > 8) {
+            errors.add("La durée de réservation ne peut pas dépasser 8 heures.");
         }
     }
 

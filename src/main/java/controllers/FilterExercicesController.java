@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.input.MouseEvent;
 import services.events.EventBus;
 
 public class FilterExercicesController extends BaseController implements INavigation {
@@ -19,5 +20,9 @@ public class FilterExercicesController extends BaseController implements INaviga
                 EventBus.publish("FILTER_CHANGED", newValue);
             }
         });
+    }
+
+    public void onClickNavigateToAddExercice(MouseEvent event) {
+        EventBus.publish("refresh-view", "/views/exercices/add-exercice.fxml");
     }
 }

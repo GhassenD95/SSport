@@ -13,7 +13,7 @@
                   <TextField fx:id="filter" prefHeight="28.0" prefWidth="359.0" promptText="Rechercher des exercices par nom.." />
                </children>
             </HBox>
-            <HBox styleClass="btn-2" alignment="CENTER_RIGHT">
+            <HBox onMouseClicked="#onClickNavigateToAddExercice" styleClass="btn-2" alignment="CENTER_RIGHT">
                <children>
                    <SVGPath content="M34,22H26V14a2,2,0,0,0-4,0v8H14a2,2,0,0,0,0,4h8v8a2,2,0,0,0,4,0V26h8a2,2,0,0,0,0-4Z M40,8V40H8V8H40m2-4H6A2,2,0,0,0,4,6V42a2,2,0,0,0,2,2H42a2,2,0,0,0,2-2V6a2,2,0,0,0-2-2Z" fill="#7E57C2" scaleX="0.6" scaleY="0.6" scaleZ="0.6" />
                </children>

@@ -53,7 +53,7 @@ public class AssignmentCardController extends BaseController implements INavigat
             type.setText(ex.getTypeExercice().name());
             setsXreps.setText(ex.getSets() + "X" + ex.getReps());
             String imageUrl = ex.getImage_url();
-            image.setImage(ImageLoader.loadImage("exercices", imageUrl));
+            image.setImage(ImageLoader.loadImageFromUrl(imageUrl));
             this.ex.setExercice(ex); // Set the Exercice in ExerciceEntrainment
         }
     }

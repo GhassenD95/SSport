@@ -9,7 +9,7 @@
             <children>
                 <ScrollPane prefWidth="800.0" styleClass="scroll-pane">
                     <content>
-                        <GridPane fx:id="gridContainer" hgap="5.0" prefHeight="400.0" prefWidth="800.0" styleClass="card2" />
+                        <GridPane fx:id="gridContainer" alignment="TOP_CENTER" hgap="5.0" prefHeight="400.0" prefWidth="800.0" styleClass="card2" />
                     </content>
                 </ScrollPane>
             </children>

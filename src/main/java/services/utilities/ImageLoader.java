@@ -33,5 +33,17 @@ public class ImageLoader {
             throw new RuntimeException("Default image not found: " + DEFAULT_IMAGE);
         }
     }
+
+    // New function to load an image from a URL
+    public static Image loadImageFromUrl(String imageUrl) {
+        try {
+            // Load image from the provided URL
+            return new Image(imageUrl, true);
+        } catch (Exception e) {
+            System.err.println("Failed to load image from URL: " + imageUrl);
+            return loadDefaultImage();
+        }
+    }
+
 }
 

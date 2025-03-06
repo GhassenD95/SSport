@@ -37,7 +37,7 @@ public class EntrainmentCardController extends BaseController implements INaviga
 
 
 
-
+    private Entrainment entrainment;
     @Override
     public void setData(Object data) {
         // Call the super method to set the data field
@@ -46,7 +46,7 @@ public class EntrainmentCardController extends BaseController implements INaviga
         // Check if the data is an instance of Entrainment
         if (data instanceof Entrainment) {
             // Cast data to Entrainment
-            Entrainment entrainment = (Entrainment) data;
+            this.entrainment = (Entrainment) data;
 
             // Set the UI elements with data from the entrainment object
             nom.setText(entrainment.getNom());
@@ -83,7 +83,7 @@ public class EntrainmentCardController extends BaseController implements INaviga
     }
 
     public void onClickEdit(MouseEvent actionEvent) {
-
+        EventBus.publish("refresh-view", "/views/entrainment/edit-entrainment.fxml" , this.entrainment );
     }
 
     public void onClickShowEntrainment(MouseEvent actionEvent) {

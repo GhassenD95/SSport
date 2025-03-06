@@ -5,12 +5,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import models.AppMsg;
 import models.module2.Exercice;
 import services.events.EventBus;
 import services.jdbc.module2.ServiceExercice;
 import services.utilities.ImageLoader;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExerciceCardController extends BaseController implements INavigation {
 
@@ -29,27 +32,38 @@ public class ExerciceCardController extends BaseController implements INavigatio
     @FXML
     private Label type;
 
+    private Exercice exercice;
     @Override
     public void setData(Object data) {
         super.setData(data);
         if(data instanceof Exercice){
-            Exercice ex = (Exercice)data;
-            name.setText(ex.getNom());
-            duree.setText(String.valueOf(ex.getDureeMinutes()) + " min");
-            type.setText(ex.getTypeExercice().name());
-            setsXreps.setText(ex.getSets() + "X" + ex.getReps());
-            String imageUrl = ex.getImage_url();
+            this.exercice = (Exercice)data;
+            name.setText(exercice.getNom());
+            duree.setText(String.valueOf(exercice.getDureeMinutes()) + " min");
+            type.setText(exercice.getTypeExercice().name());
+            setsXreps.setText(exercice.getSets() + "X" + exercice.getReps());
+            String imageUrl = exercice.getImage_url();
 
-            image.setImage(ImageLoader.loadImage("exercices", imageUrl));
+            image.setImage(ImageLoader.loadImageFromUrl( imageUrl));
         }
     }
 
     public void onClickDelete(MouseEvent event) {
         try {
             new ServiceExercice().delete((Exercice) this.data);
+            List<String> success = new ArrayList<>();
+            success.add("Exercice supprimé.");
+            AppMsg appMsg = new AppMsg(false, success);
+            EventBus.publish("show-app-msg", appMsg);
+
             EventBus.publish("refresh-view", "/views/exercices/list-exercices.fxml");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void onClickUpdateExercise(MouseEvent event) {
+        EventBus.publish("refresh-view", "/views/exercices/update-exercice.fxml", this.exercice);
+
     }
 }

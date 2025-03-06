@@ -9,9 +9,9 @@
    <children>
       <HBox alignment="CENTER_RIGHT">
          <children>
-            <HBox alignment="CENTER" styleClass="btn-2">
+            <HBox onMouseClicked="#onClickUpdateExercise" alignment="CENTER" styleClass="btn-2">
                <children>
-                  <SVGPath content="M15,6V1.76l-1.7,1.7A7,7,0,1,0,14.92,9H13.51a5.63,5.63,0,1,1-1.2-4.55L10.76,6Z" style="-fx-fill: #2dd4bf;" />
+                  <SVGPath  content="M15,6V1.76l-1.7,1.7A7,7,0,1,0,14.92,9H13.51a5.63,5.63,0,1,1-1.2-4.55L10.76,6Z" style="-fx-fill: #2dd4bf;" />
                </children>
             </HBox>
             <HBox alignment="CENTER" onMouseClicked="#onClickDelete" styleClass="btn-2">

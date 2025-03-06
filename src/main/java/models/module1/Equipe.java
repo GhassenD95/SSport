@@ -6,6 +6,7 @@ import models.module2.Entrainment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Equipe {
     private int id;
@@ -129,5 +130,16 @@ public class Equipe {
                 ", isLocal=" + isLocal +
                 ", coach=" + coach +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Equipe equipe)) return false;
+        return id == equipe.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }

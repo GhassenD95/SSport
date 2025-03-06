@@ -7,11 +7,11 @@
 
 <VBox alignment="CENTER" maxHeight="203.0" maxWidth="200.0" stylesheets="@../../styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ExerciceCardController">
    <children>
-      <HBox alignment="CENTER_RIGHT">
+      <HBox fx:id="btns" alignment="CENTER_RIGHT">
          <children>
-            <HBox onMouseClicked="#onClickUpdateExercise" alignment="CENTER" styleClass="btn-2">
+            <HBox alignment="CENTER" onMouseClicked="#onClickUpdateExercise" styleClass="btn-2">
                <children>
-                  <SVGPath  content="M15,6V1.76l-1.7,1.7A7,7,0,1,0,14.92,9H13.51a5.63,5.63,0,1,1-1.2-4.55L10.76,6Z" style="-fx-fill: #2dd4bf;" />
+                  <SVGPath content="M15,6V1.76l-1.7,1.7A7,7,0,1,0,14.92,9H13.51a5.63,5.63,0,1,1-1.2-4.55L10.76,6Z" style="-fx-fill: #2dd4bf;" />
                </children>
             </HBox>
             <HBox alignment="CENTER" onMouseClicked="#onClickDelete" styleClass="btn-2">
@@ -22,7 +22,7 @@
          </children>
       </HBox>
       <!-- ImageView with fixed size -->
-      <ImageView fx:id="image" fitWidth="200" fitHeight="150" preserveRatio="false" />
+      <ImageView fx:id="image" fitHeight="150" fitWidth="200" preserveRatio="false" />
       <GridPane alignment="CENTER">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.2" minWidth="10.0" prefWidth="100.2" />

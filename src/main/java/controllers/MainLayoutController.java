@@ -1,16 +1,26 @@
 package controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import models.AppMsg;
+import models.module1.Utilisateur;
 import services.events.EventBus;
+import services.utilities.ImageLoader;
 import services.utilities.NavigationService;
+import services.utilities.Session;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 public class MainLayoutController {
 
@@ -23,12 +33,33 @@ public class MainLayoutController {
     @FXML
     private StackPane overlay;
 
+    @FXML
+    private ImageView imageUser;
+
+    @FXML
+    private Label nomUser;
+
+    @FXML
+    private Label roleUser;
+
     private NavigationService navigationService;
 
 
 
 
     public void initialize() {
+        Utilisateur utilisateur = Session.getInstance().getUtilisateur(); // Ensure Session is a singleton
+
+        if (utilisateur != null) {
+            nomUser.setText(utilisateur.getNom());
+            roleUser.setText(utilisateur.getRole().toString());
+            imageUser.setImage(ImageLoader.loadImage("profile", utilisateur.getImage_url()));
+        } else {
+            // Handle the case where utilisateur is null
+            nomUser.setText("Guest");
+            roleUser.setText("No Role");
+            imageUser.setImage(ImageLoader.loadImage("profile", "default_image_url")); // Provide a default image URL
+        }
 
         //set visibility of info card to none
         appMsg.setVisible(false);
@@ -101,5 +132,29 @@ public class MainLayoutController {
 
     public void onClickNavigateToExercices(MouseEvent event) {
         EventBus.publish("refresh-view", "/views/exercices/list-exercices.fxml");
+    }
+
+    public void logout(MouseEvent event) {
+        Stage mainStage = (Stage) mainContent.getScene().getWindow();
+        mainStage.close();
+
+        // Clear the session (if needed)
+        Session.getInstance().setUtilisateur(null);
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/login.fxml")); // Path to your login.fxml
+            Scene loginScene = new Scene(fxmlLoader.load(), 600, 400); // Adjust dimensions as needed
+            Stage loginStage = new Stage();
+            loginStage.setTitle("Login");
+            loginStage.setScene(loginScene);
+            loginStage.setResizable(false);  // Prevent resizing
+            loginStage.setMaximized(false);  // Prevent maximizing
+            loginStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/sports.png")))); // Load icon
+
+            loginStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

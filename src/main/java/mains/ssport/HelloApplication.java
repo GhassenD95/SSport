@@ -12,8 +12,8 @@ import java.util.Objects;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/main-layout.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setResizable(false);  // Prevent resizing
         stage.setMaximized(false);  // Prevent maximizing
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/sports.png")))); // Load icon

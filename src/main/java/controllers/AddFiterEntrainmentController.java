@@ -8,11 +8,13 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListCell;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import models.module1.Utilisateur;
 import models.module6.InstallationSportive;
 import services.events.EventBus;
 import services.jdbc.module1.ServiceUtilisateur;
 import services.jdbc.module6.ServiceInstallationSportive;
+import services.utilities.Session;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -31,8 +33,15 @@ public class AddFiterEntrainmentController extends BaseController implements INa
     private DatePicker debut;
     @FXML
     private DatePicker fin;
+    @FXML
+    private HBox addbtn;
 
     public void initialize() {
+
+        if(Session.getInstance().getUtilisateur().getRole() != Role.ADMIN || Session.getInstance().getUtilisateur().getRole() != Role.COACH) {
+            addbtn.setVisible(false);
+        }
+
         fillCoachesComboBox();
         fillInstallationsComboBox();
 
@@ -91,7 +100,7 @@ public class AddFiterEntrainmentController extends BaseController implements INa
             List<Utilisateur> coachList = new ServiceUtilisateur()
                     .getAll()
                     .stream()
-                    .filter((utilisateur) -> utilisateur.getRole() == Role.COACH)  // Filter by COACH enum
+                    .filter((utilisateur) -> utilisateur.getRole() == Role.COACH || utilisateur.getRole() == Role.ADMIN)  // Filter by COACH enum
                     .collect(Collectors.toList());
 
             for (Utilisateur coach : coachList) {
@@ -135,4 +144,7 @@ public class AddFiterEntrainmentController extends BaseController implements INa
         EventBus.publish("filter-entrainment", filters);
     }
 
+    public void resetFilters(MouseEvent event) {
+        EventBus.publish("refresh-view", "/views/entrainment/entrainment.fxml");
+    }
 }

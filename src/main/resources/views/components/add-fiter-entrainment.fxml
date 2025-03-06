@@ -19,9 +19,14 @@
                <children>
                   <DatePicker fx:id="debut" styleClass="date-picker" />
                   <DatePicker fx:id="fin" layoutX="10.0" layoutY="16.0" />
-                  <HBox alignment="CENTER" prefHeight="51.0" prefWidth="52.0" spacing="4.0">
+                  <HBox alignment="CENTER" prefHeight="51.0" prefWidth="160.0" spacing="4.0">
                      <children>
-                        <HBox alignment="CENTER" onMouseClicked="#onClick" prefWidth="194.0" styleClass="btn-2">
+                        <HBox alignment="CENTER" layoutX="25.0" layoutY="10.0" onMouseClicked="#onClick">
+                           <children>
+                              <Button mnemonicParsing="false" onMouseClicked="#resetFilters" prefWidth="138.0" styleClass="btn-1" text="reset" />
+                           </children>
+                        </HBox>
+                        <HBox fx:id="addbtn" alignment="CENTER" onMouseClicked="#onClick" prefHeight="51.0" prefWidth="82.0" styleClass="btn-2">
                            <children>
                               <SVGPath content="M34,22H26V14a2,2,0,0,0-4,0v8H14a2,2,0,0,0,0,4h8v8a2,2,0,0,0,4,0V26h8a2,2,0,0,0,0-4Z M40,8V40H8V8H40m2-4H6A2,2,0,0,0,4,6V42a2,2,0,0,0,2,2H42a2,2,0,0,0,2-2V6a2,2,0,0,0-2-2Z" fill="#7E57C2" scaleX="0.6" scaleY="0.6" scaleZ="0.6" />
                            </children>

@@ -195,6 +195,7 @@ public class ServiceUtilisateur extends BaseService implements IService<Utilisat
             returnedUtilisateur.setAdresse(rs.getString("adresse"));
             returnedUtilisateur.setTelephone(rs.getString("telephone"));
             returnedUtilisateur.setImage_url(rs.getString("image_url"));
+            returnedUtilisateur.setRole(Role.valueOf(rs.getString("role")));
 
             int equipe_id = rs.getInt("equipe_id");
             if (rs.wasNull()) {
@@ -231,6 +232,7 @@ public class ServiceUtilisateur extends BaseService implements IService<Utilisat
             returnedUtilisateur.setAdresse(rs.getString("adresse"));
             returnedUtilisateur.setTelephone(rs.getString("telephone"));
             returnedUtilisateur.setImage_url(rs.getString("image_url"));
+            returnedUtilisateur.setRole(Role.valueOf(rs.getString("role")));
             int equipe_id = rs.getInt("equipe_id");
             if (rs.wasNull()) {
                 returnedUtilisateur.setEquipe(null);

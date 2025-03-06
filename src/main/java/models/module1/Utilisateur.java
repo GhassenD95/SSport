@@ -9,6 +9,7 @@ import models.module6.InstallationSportive;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Utilisateur {
     private int id;
@@ -237,5 +238,16 @@ public class Utilisateur {
                 ", equipe=" + equipe +
                 ", id=" + id +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Utilisateur that)) return false;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }

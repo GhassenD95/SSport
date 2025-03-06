@@ -1,5 +1,7 @@
 package services.jdbc;
 
+import services.utilities.ConfigLoader;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

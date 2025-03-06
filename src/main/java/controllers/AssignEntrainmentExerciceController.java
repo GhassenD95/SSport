@@ -22,6 +22,8 @@ public class AssignEntrainmentExerciceController extends BaseController implemen
     private VBox filter;
     @FXML
     private VBox exercices;
+    @FXML
+    private VBox chatbot;
 
     private List<Exercice> exerciseList;
     private Entrainment entrainment; // Store entrainment for reloading
@@ -46,6 +48,7 @@ public class AssignEntrainmentExerciceController extends BaseController implemen
 
         navigationService.loadComponent("/views/components/title-banner.fxml", title, "Attribuer des exercices à une séance d'entraînement");
         navigationService.loadComponent("/views/components/search-bar.fxml", filter);
+        navigationService.loadComponent("/views/components/chatbot.fxml", chatbot);
 
         // Subscribe to "EXERCISES_UPDATED" event to refresh exercises when triggered
         EventBus.subscribe("EXERCISES_UPDATED", (String data) -> {

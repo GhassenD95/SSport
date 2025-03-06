@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" maxHeight="200.0" prefWidth="800.0" styleClass="scroll-pane" stylesheets="@../../styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ChatbotController">
+   <content>
+      <VBox prefWidth="800.0" spacing="10.0" styleClass="card2" stylesheets="@../../styles.css">
+         <children>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <Label styleClass="text-secondary" text="Recommendation" />
+               </children>
+            </HBox>
+
+            <HBox alignment="CENTER" layoutX="20.0" layoutY="20.0" spacing="20.0">
+               <children>
+                  <Label styleClass="text-secondary" text="input" />
+                  <TextField fx:id="input" prefHeight="28.0" prefWidth="500.0" />
+                  <Button mnemonicParsing="false" onMouseClicked="#sendMessage" styleClass="btn-1" text="Recommander" />
+               </children>
+            </HBox>
+
+            <!-- TextArea without ScrollPane (since the entire VBox is scrollable) -->
+            <TextArea fx:id="output" prefHeight="200.0" prefWidth="779.0" wrapText="true" />
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

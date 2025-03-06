@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.AssignEntrainmentExerciceController"
-            prefHeight="400.0" prefWidth="600.0"
-           stylesheets="@../../styles.css">
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AssignEntrainmentExerciceController">
     <children>
-        <VBox spacing="10.0">
-            <children>
-                <VBox fx:id="title" />
-                <VBox fx:id="filter" />
-                <VBox fx:id="content" />
-                <VBox fx:id="exercices" />
-
-
-            </children>
-        </VBox>
+        <!-- Wrap the VBox in a ScrollPane -->
+        <ScrollPane fitToWidth="true" >
+            <content>
+                <VBox spacing="10.0" style="-fx-background-color: #222222;">
+                    <children>
+                        <VBox fx:id="title" style="-fx-background-color: #171717;" />
+                        <VBox fx:id="filter" style="-fx-background-color: #171717;" />
+                        <VBox fx:id="content" style="-fx-background-color: #171717;" />
+                        <VBox fx:id="exercices" style="-fx-background-color: #171717;" />
+                        <VBox fx:id="chatbot" style="-fx-background-color: #171717;" />
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
     </children>
-</StackPane>
+</VBox>

@@ -11,6 +11,8 @@ module mains.ssport {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.sql;
+    requires okhttp3;
+    requires org.json;
 
     opens mains.ssport to javafx.fxml;
     exports mains.ssport;

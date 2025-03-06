@@ -4,6 +4,7 @@ import enums.TypeExercice;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Exercice {
     private int id;
@@ -107,5 +108,18 @@ public class Exercice {
                 ", reps=" + reps +
                 ", image_url='" + image_url + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true; // Same instance
+        if (o == null || getClass() != o.getClass()) return false; // Null or different class
+        Exercice exercice = (Exercice) o;
+        return id == exercice.id; // Compare by ID only
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id); // Use ID for hashCode
     }
 }

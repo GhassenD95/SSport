@@ -4,10 +4,12 @@ import common.INavigation;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import models.module2.Entrainment;
 import models.module2.Exercice;
+import services.events.EventBus;
 import services.utilities.DateConverter;
 import services.utilities.ImageLoader;
 import services.utilities.NavigationService;
@@ -40,12 +42,13 @@ public class EntrainmentShowComponentController extends BaseController implement
 
     private List<Exercice> exercicesList;
 
+    private Entrainment entrainment;
     @Override
     public void setData(Object data) {
         super.setData(data);
         System.out.println(data);
         if (data instanceof Entrainment) {
-            Entrainment entrainment = (Entrainment) data;
+            this.entrainment = (Entrainment) data;
             nom.setText(entrainment.getNom());
             description.setText(entrainment.getDescription());
             nomInstallation.setText(entrainment.getInstallationSportive().getNom());
@@ -67,5 +70,15 @@ public class EntrainmentShowComponentController extends BaseController implement
 
 
     }
+
+    public void navigateToAssignExercice(MouseEvent mouseEvent) {
+        if (entrainment == null) {
+            System.err.println("Error: Entrainment is null. Cannot navigate to assign exercises.");
+            return;
+        }
+        System.out.println("Navigating to assign exercises for Entrainment: " + entrainment.getId());
+        EventBus.publish("refresh-view", "/views/exercices/assign-entrainment-exercice.fxml", this.entrainment);
+    }
+
 
 }

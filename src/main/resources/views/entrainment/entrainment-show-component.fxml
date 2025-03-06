@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
 
-<VBox prefWidth="600.0" spacing="20.0" stylesheets="@../../styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EntrainmentShowComponentController">
+<VBox prefWidth="600.0" spacing="20.0" stylesheets="@../../styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EntrainmentShowComponentController">
    <children>
       <VBox fx:id="title" />
       <GridPane prefHeight="408.0" prefWidth="579.0" styleClass="card2">
@@ -18,16 +23,22 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox alignment="CENTER">
+            <VBox spacing="50.0">
                <children>
-                  <HBox alignment="CENTER">
+                  <HBox alignment="CENTER_LEFT">
                      <children>
                         <Label fx:id="nom" styleClass="title" text="Seance 1" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0">
                      <children>
                         <Label fx:id="description" styleClass="text-secondary" text="I-Installation d’ « Oracle Database Express Edition »Pour installer Oracle Database XE 11.2 vous devez être connecté en tantqu’administrateur sur votre ordinateur.Etape 1 : Télécharger « Oracle Database Express Edition 11" wrapText="true" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label fx:id="coach" styleClass="text-secondary" text="coach" />
+                        <ImageView fx:id="imageCoach" fitHeight="35.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </HBox>
                </children>
@@ -73,6 +84,16 @@
             </VBox>
          </children>
       </GridPane>
+      <HBox onMouseClicked="#navigateToAssignExercice" alignment="CENTER">
+         <children>
+            <Label text="Attribuer des exercices">
+               <styleClass>
+                  <String fx:value="text-secondary" />
+                  <String fx:value="link" />
+               </styleClass>
+            </Label>
+         </children>
+      </HBox>
       <VBox fx:id="exercices" />
    </children>
 </VBox>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.shape.SVGPath?>
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.SearchBarController"
+      alignment="CENTER" prefWidth="800.0" styleClass="card2" stylesheets="@../../styles.css">
+    <children>
+        <VBox alignment="CENTER" prefWidth="800.0">
+            <children>
+                <HBox alignment="CENTER">
+                    <children>
+                        <TextField fx:id="filter" prefHeight="28.0" prefWidth="359.0" promptText="Rechercher des exercices par nom.." />
+                    </children>
+                </HBox>
+
+            </children>
+        </VBox>
+    </children>
+
+</HBox>

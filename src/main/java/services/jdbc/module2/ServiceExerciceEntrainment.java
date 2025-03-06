@@ -36,12 +36,17 @@ public class ServiceExerciceEntrainment extends BaseService implements IService<
 
     @Override
     public void delete(ExerciceEntrainment exerciceEntrainment) throws SQLException {
-        String sql = "DELETE FROM exercice_entrainment WHERE id = ?";
+        // Delete based on entrainment_id and exercice_id
+        String sql = "DELETE FROM exercice_entrainment WHERE entrainment_id = ? AND exercice_id = ?";
         PreparedStatement stmt = con.prepareStatement(sql);
-        stmt.setInt(1, exerciceEntrainment.getId());
+        stmt.setInt(1, exerciceEntrainment.getEntrainment().getId());
+        stmt.setInt(2, exerciceEntrainment.getExercice().getId());
         stmt.executeUpdate();
-        System.out.println("Exercice_Entrainment " + exerciceEntrainment + " suprrime");
+        System.out.println("Exercice_Entrainment deleted for Entrainment ID: " +
+                exerciceEntrainment.getEntrainment().getId() +
+                " and Exercice ID: " + exerciceEntrainment.getExercice().getId());
     }
+
 
     @Override
     public ExerciceEntrainment get(ExerciceEntrainment exerciceEntrainment) throws SQLException {

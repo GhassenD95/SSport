@@ -15,9 +15,12 @@ import services.jdbc.module2.ServiceEntrainment;
 import services.jdbc.module6.ServiceInstallationSportive;
 import services.utilities.NavigationService;
 import services.validators.EntrainmentValidator;
+import services.websockets.NotificationClient;
 
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.UnaryOperator;
@@ -57,7 +60,12 @@ public class AddEntrainmentController extends BaseController implements INavigat
     @FXML
     private VBox title;
 
+    private NotificationClient notificationClient;
+
     public void initialize() {
+        // Initialize WebSocket client
+        initializeNotificationClient();
+
         //fill comboboxes
         //equipes
         fillEquipeComboBox();
@@ -71,6 +79,16 @@ public class AddEntrainmentController extends BaseController implements INavigat
         configureTimeFields(minutes_depart, "MM", 59);
         configureTimeFields(hours_fin, "HH", 23);
         configureTimeFields(minutes_fin, "MM", 59);
+    }
+
+    private void initializeNotificationClient() {
+        try {
+            notificationClient = new NotificationClient();
+            notificationClient.connect();
+        } catch (URISyntaxException e) {
+            System.err.println("Failed to initialize WebSocket client:");
+            e.printStackTrace();
+        }
     }
 
     private void configureTimeFields(TextField textField, String placeholder, int maxValue) {
@@ -121,6 +139,7 @@ public class AddEntrainmentController extends BaseController implements INavigat
             }
         });
     }
+
     public void onClickCancel(MouseEvent event) {
         EventBus.publish("refresh-view", "/views/entrainment/entrainment.fxml");
     }
@@ -132,9 +151,6 @@ public class AddEntrainmentController extends BaseController implements INavigat
         // Fetch selected team and installation
         selectedEquipe = equipe.getSelectionModel().getSelectedItem();
         selectedLieux = lieux.getSelectionModel().getSelectedItem();
-
-        // Check if either selectedEquipe or selectedLieux is null
-
 
         // Create the new Entrainment object
         Entrainment newEntrainment = new Entrainment();
@@ -157,7 +173,12 @@ public class AddEntrainmentController extends BaseController implements INavigat
         // Check if the object is valid
         if (validator.isValid()) {
             try {
-                new ServiceEntrainment().add(newEntrainment);
+                ServiceEntrainment service = new ServiceEntrainment();
+                service.add(newEntrainment);
+
+                // Send notification about the new training
+                sendNewEntrainmentNotification(newEntrainment);
+
                 List<String> msg_success = new ArrayList<>();
                 msg_success.add("Entrainment ajoutée.");
                 appMsg = new AppMsg(false, msg_success);
@@ -169,8 +190,37 @@ public class AddEntrainmentController extends BaseController implements INavigat
             appMsg = new AppMsg(true, errors);
             EventBus.publish("show-app-msg", appMsg);
         }
+    }
 
+    // Method to send notification when a new entrainment is created
+    private void sendNewEntrainmentNotification(Entrainment entrainment) {
+        if (notificationClient != null && notificationClient.isOpen()) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+            String formattedStart = entrainment.getDateDebut().format(formatter);
 
+            String message = String.format(
+                    "Nouvel entrainment créé: %s pour l'équipe %s, prévu le %s",
+                    entrainment.getNom(),
+                    entrainment.getEquipe() != null ? entrainment.getEquipe().getNom() : "Non spécifiée",
+                    formattedStart
+            );
+
+            notificationClient.sendNotification(message);
+        }
+    }
+
+    // Method to send notification when athletes are added to an entrainment
+    public void notifyAthletesAddedToEntrainment(Entrainment entrainment, int athleteCount) {
+        if (notificationClient != null && notificationClient.isOpen()) {
+            String message = String.format(
+                    "%d athlète(s) ajouté(s) à l'entrainment '%s' de l'équipe %s",
+                    athleteCount,
+                    entrainment.getNom(),
+                    entrainment.getEquipe() != null ? entrainment.getEquipe().getNom() : "Non spécifiée"
+            );
+
+            notificationClient.sendNotification(message);
+        }
     }
 
     private void fillEquipeComboBox() {
@@ -268,5 +318,10 @@ public class AddEntrainmentController extends BaseController implements INavigat
         }
     }
 
-
+    // Method to clean up resources
+    public void cleanup() {
+        if (notificationClient != null) {
+            notificationClient.close();
+        }
+    }
 }

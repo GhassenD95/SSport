@@ -14,6 +14,7 @@ module mains.ssport {
     requires okhttp3;
     requires org.json;
     requires java.desktop;
+    requires Java.WebSocket;
 
     opens mains.ssport to javafx.fxml;
     exports mains.ssport;

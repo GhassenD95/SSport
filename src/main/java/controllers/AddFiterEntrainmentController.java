@@ -38,7 +38,7 @@ public class AddFiterEntrainmentController extends BaseController implements INa
 
     public void initialize() {
 
-        if(Session.getInstance().getUtilisateur().getRole() != Role.ADMIN || Session.getInstance().getUtilisateur().getRole() != Role.COACH) {
+        if(Session.getInstance().getUtilisateur().getRole() != Role.ADMIN && Session.getInstance().getUtilisateur().getRole() != Role.COACH) {
             addbtn.setVisible(false);
         }
 

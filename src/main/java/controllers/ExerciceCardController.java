@@ -60,7 +60,7 @@ public class ExerciceCardController extends BaseController implements INavigatio
 
     private void setButtonVisibility() {
         Utilisateur currentUser = Session.getInstance().getUtilisateur();
-        if(currentUser.getRole() != Role.ADMIN || currentUser.getRole() != Role.COACH) {
+        if(currentUser.getRole() != Role.ADMIN && currentUser.getRole() != Role.COACH) {
             btns.setVisible(false);
         }
     }
